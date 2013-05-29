@@ -1,0 +1,11 @@
+<h2 class="ui-widget-header ui-corner-top">HOA Listings</h2>
+
+<% if maintenance_funds.size > 0 %>
+  <%= render :partial => 'maintenance_funds/print_maintenance_fund', 
+             :collection => maintenance_funds, 
+             :locals => { 
+               :hide_additional_contact_info => hide_additional_contact_info
+              } %>
+<% else %>
+  <p>There are currently no HOAs in the system.</p>
+<% end %>

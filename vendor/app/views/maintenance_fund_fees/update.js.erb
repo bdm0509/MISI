@@ -1,0 +1,14 @@
+<% unless @errors.nil? %>
+  misi_error("There was a problem making the requested fee changes: <%= @errors %>");
+<% else %>
+  fee_table = $("#maintenance_fund_fees_table").dataTable();
+  fee_table.fnDestroy();
+  
+  $("#maintenance_fund_fees_listing")
+    .empty()
+    .append("<%= escape_javascript(render(:partial => 'maintenance_fund_fees/maintenance_fund_fees', :object => @maintenance_fund.maintenance_fund_fees)) %>");
+    
+  maintenance_fund_fees_table_init(<%= @maintenance_fund.maintenance_fund_fees.length %>);
+
+  highlight_maintenance_fund_fee(<%= @maintenance_fund_fee.id %>);
+<% end %>

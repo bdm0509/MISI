@@ -1,0 +1,21 @@
+<div id="home_page_text" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Edit Home Page Text</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <%= form_tag("/home_page/update", :method => "put", :class => "align validate_me" ) do %>
+      <fieldset class="align">
+        <p>
+          Enter in any text you want to appear on the MISI home page in the text block below. You can use
+          HTML tags like &lt;b&gt;<b>bolded text</b>&lt;/b&gt; for bold and &lt;i&gt;<i>italicized text</i>&lt;/i&gt; for italics. You
+          can also separate paragraphs by using the &lt;p&gt; and &lt;/p&gt; tags.
+        </p>
+      </fieldset>
+      <fieldset class="align">
+        <textarea id="home_page_text" name="home_page_text" rows="15" cols="90"><%= @text_block.text_block %></textarea>
+      </fieldset>
+      <fieldset class="align form_controls">
+        <input type="reset" name="Reset Values" />
+        <input type="submit" value="Update home page text" />
+      </fieldset>
+    <% end %>
+  </div>
+</div> <!-- div#home_page_text -->

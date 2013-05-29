@@ -1,0 +1,8 @@
+<div id="home" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Welcome to MISI</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <% @users.each do |user| %>
+      <p>User: <%= link_to "#{user.first_name} #{user.last_name}", user %></p>
+    <% end %>
+  </div>
+</div>

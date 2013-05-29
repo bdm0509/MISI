@@ -1,0 +1,44 @@
+<div id="maintenance_funds" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">HOA Listings</h2>
+  
+  <div class="ui-widget-content ui-corner-bottom">
+    <% unless @printing %>
+      <div class="content_controls">
+        <%= link_to "Create New HOA", new_maintenance_fund_path, :id => "create_new_maintenance_fund", :class => "create_new_button" %>
+        <%= link_to "Print HOA Listings", print_maintenance_funds_path, :id => "print_maintenance_funds", :class => "create_new_button" %>
+      </div>
+    <% end %>
+    <%= render :partial => 'maintenance_funds/maintenance_funds', :object => @maintenance_funds %>
+  </div>
+</div> <!-- div#maintenance_funds -->
+
+<% unless @printing %>
+  <div id="contact_information" title="Contact Information">
+    <h3><span id="contact_information-name"></span></h3>
+    <p>
+      Phone: <span id="contact_information-phone"></span><br />
+      Contact: <span id="contact_information-contact"></span>
+    </p>
+  </div>
+  
+  <div id="print_confirm" title="Confirm HOA Print Request">
+    <p>Generating a report of all HOAs can take several minutes to process. You should not
+       navigate away from the MISI site or click your browser's Back button while this generation
+       is taking place. When report generation is complete, a PDF will pop up on your screen.</p>
+    <p style="text-align: center;">
+      <input type="checkbox" id="show_additional_contact_information" /> Show Additional Contact Information on Report?
+    </p>
+  </div>
+
+  <% content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      maintenance_fund_init_page(<%= @num_maintenance_funds %>, "<%= datatable_maintenance_funds_path %>");
+    
+      <% unless @new_maintenance_fund_id.nil? %>
+        highlight_maintenance_fund("<%= @new_maintenance_fund_id %>");
+      <% end %>
+    });
+  </script>
+  <% end %>
+<% end %>

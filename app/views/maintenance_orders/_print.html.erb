@@ -1,0 +1,170 @@
+<div style="text-align: center;">
+  <p>
+    <b>Maintenance Information Services, Inc.</b><br />
+    9301 Southwest Freeway<br />
+    Suite 455<br />
+    Houston, Texas 77074<br />
+    Phone: (713) 270-5660
+    Fax: (713) 270-7133
+</div>
+
+<hr width="50%" />
+
+<div id="print_maintenance_order" class="ui-corner-all listing_div">
+  <table width="100%" cellspacing="5px" cellpadding="2px">
+    <tr>
+      <td colspan="2">
+        <b>Assured:</b> <%= @maintenance_order.assured.title %>
+      </td>
+      <td>
+        <b>Certificate Number:</b> 
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b>GF:</b> <%= @maintenance_order.gf %>
+      </td>
+      <td>
+        <b>Report Date:</b> <%= @maintenance_order.report_date.strftime("%m/%d/%Y") %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <b>Legal Description:</b> <%= @maintenance_order.legal_description %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Buyer:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.buyer %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Seller:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.seller %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Property Street Address:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.property_address %>
+      </td>
+    </tr>
+    <tr><td colspan="3">&nbsp;</td></tr>
+    <tr>
+      <td colspan="3" align="center"><b>Maintenance Fund/Association</b></td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Maintenance Fund/Association:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.maintenance_fund.name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Collector:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.hoa_collector %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Street:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.hoa_street %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>City, State, Zip:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.hoa_city %>, <%= @maintenance_order.hoa_state %> <%= @maintenance_order.hoa_zip %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>Phone:</b>
+      </td>
+      <td colspan="2">
+        <%= @maintenance_order.hoa_phone %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right">
+        <b>Year:</b> <%= @maintenance_order.hoa_fee_year %>
+      </td>
+      <td align="center">
+        <b>Amount:</b> <%= @maintenance_order.hoa_fee %>
+      </td>
+      <td>
+        <b>Status:</b> <%= @maintenance_order.order_status %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center">
+        <b>How Collected:</b> <%= @maintenance_fund_fee.fee_collection_type.nil? ? "<i>Not specified</i>".html_safe : @maintenance_fund_fee.fee_collection_type.description %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><b><u>Delinquent(s)</u></b></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <% if @maintenance_order.delinquent.nil? || @maintenance_order.delinquent.blank? %>
+          <i>None specified</i><br />
+        <% else %>
+          <%= @maintenance_order.delinquent %><br />
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  
+  <p>
+    <% if @maintenance_order.special_instructions.nil? || @maintenance_order.special_instructions.blank? %>
+      <b>Special Instructions:</b> <i>Call HOA for details if needed</i><br />
+    <% else %>
+      <b>Special Instructions:</b> <%= @maintenance_order.special_instructions %><br />
+    <% end %>
+    <% if @maintenance_order.amenities.nil? || @maintenance_order.amenities.blank? %>
+      <b>Amenities:</b> <i>Call HOA for details if needed</i><br />
+    <% else %>
+      <b>Amenities:</b> <%= @maintenance_order.amenities %><br />
+    <% end %>
+  </p>
+  <p style="font-size: 90%; text-align: justify;">
+    MAINTENANCE INFORMATION SERVICES, INC. ACCEPTS THE RESPONSIBILITY FOR THE<br/>
+    INFORMATION INCLUDED ABOVE WITH THE EXCEPTION OF THE FOLLOWING: &nbsp;1) CHANGES TO<br />
+    THE ASSOCIATION BOOKKEEPING RECORDS OR CLOSING REQUIREMENTS 2) &nbsp;SUPPLEMENTAL OR<br />
+    RETROACTIVE BILLINGS BY THE ASSOCIATION OR ITS REPRESENTATIVES SUBSEQUENT TO THE <br />
+    DATE OF OUR REPORT.  PLEASE NOTIFY THE UNDERSIGNED PRIOR TO CONTACTING THE<br />
+    ASSOCIATION.
+  </p>
+  <table style="align: center;" width="100%">
+    <tr>
+      <td style="text-align: right;">
+        SIGNED BY: 
+      </td>
+      <td>
+        _____________________________________________________________________
+      </td>
+    <tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        FOR: MAINTENANCE INFORMATION SERVICES, INC.
+      </td>
+    </tr>
+  </table>
+</div> <!-- div#print_maintenance_order -->
