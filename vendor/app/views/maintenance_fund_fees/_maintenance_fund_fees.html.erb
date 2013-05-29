@@ -1,0 +1,12 @@
+<% unless maintenance_fund_fees.nil? or maintenance_fund_fees.length == 0 %>
+<table id="maintenance_fund_fees_table" class="display">
+  <thead>
+    <tr><th>Year</th><th>Amount</th><th>Collected</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'maintenance_fund_fees/maintenance_fund_fee', :collection => maintenance_fund_fees %>
+  </tbody>
+</table>
+<% else %>
+  <p>This HOA has no associated fees.</p>
+<% end %>

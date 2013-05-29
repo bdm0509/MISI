@@ -1,0 +1,7 @@
+<tr id="maintenance_fund_fee-<%= maintenance_fund_fee.id %>">
+  <td class="maintenance_fund_fee_year center">
+    <a href="javascript:maintenance_fund_fee_info(<%= maintenance_fund_fee.id %>);"><%= maintenance_fund_fee.year %></a> 
+  </td>
+  <td class="maintenance_fund_fee_amount center"><%= maintenance_fund_fee.amount %></td>
+  <td class="maintenance_fund_fee_collected center"><%= maintenance_fund_fee.fee_collection_type.nil? ? "<i>Not specified</i>".html_safe : maintenance_fund_fee.fee_collection_type.description %><input type="hidden" class="maintenance_fund_fee_collected_id" value=<%= maintenance_fund_fee.fee_collection_type.nil? ? "" : "#{maintenance_fund_fee.fee_collection_type.id}" %> /></td>
+</tr>

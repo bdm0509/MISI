@@ -1,0 +1,51 @@
+<% if @maintenance_fund.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@maintenance_fund.errors.count, "error") %> 
+        prohibited this HOA from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @maintenance_fund.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for(@maintenance_fund, :html => { :class => "align validate_me", :id => "maintenance_fund_form" } ) do |f| %>
+  <fieldset class="align">
+    <%= f.label :name, :class => "align" %>: <%= f.text_field :name, :class => "align required", :size => 50 %><br />
+    <%= f.label :collector, :class => "align" %>: <%= f.text_field :collector, :class => "align", :size => 50 %><br />
+    <%= f.label :street, :class => "align" %>: <%= f.text_field :street, :class => "align", :size => 50 %><br />
+    <%= f.label :city, :class => "align" %>: <%= f.text_field :city, :class => "align", :size => 50 %><br />
+    <%= f.label :state, :class => "align" %>: <%= state_select("maintenance_fund", "state", 'US', { :selected => @maintenance_fund.state }, { :class => "align" }) %><br />
+    <%= f.label :zip, :class => "align" %>: <%= f.text_field :zip, :class => "align", :size => 50 %>
+  </fieldset>
+  <fieldset class="align">
+    <%= f.label :contact, :class => "align" %>: <%= f.text_field :contact, :class => "align", :size => 50 %><br />
+    <%= f.label :phone, :class => "align" %>: <%= f.text_field :phone, :class => "align", :size => 50 %>
+  </fieldset>
+  <fieldset class="align">
+    <%= f.label :instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %>
+    <%= f.label :amenities, "Amenities:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
+  </fieldset>
+  <fieldset class="align center">
+    <%= link_to "Add New Fee", "javascript:add_maintenance_fund_fee();", :id => "create_new_maintenance_fund_fee", :class => "create_new_button" %>
+    <span id="maintenance_fund_fees_listing"><%= render :partial => 'maintenance_fund_fees/maintenance_fund_fees', :object => @maintenance_fund.maintenance_fund_fees %></span>
+  </fieldset>
+  <fieldset class="align form_controls">
+    <input type="reset" name="Reset Values" />
+    <%= link_to maintenance_fund_type == "new" ? "Create HOA" : "Update HOA", "javascript:check_for_empty_data();", :id => "create_maintenance_fund" %>
+  </fieldset>
+<% end %>
+
+<div id="dialog-confirm" title="Create this HOA?">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This HOA is missing information that is usually required for 
+	  active HOAs. Are you sure you want to create this HOA with empty fields?</p>
+</div>
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    $('#create_maintenance_fund').button();
+  });
+</script>
+<% end %>

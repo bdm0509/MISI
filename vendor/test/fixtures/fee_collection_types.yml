@@ -1,0 +1,55 @@
+monthly:
+  type_string: MONTHLY
+  description: Monthly
+  
+yearly:
+  type_string: YEARLY
+  description: Yearly
+  
+yearly_in_arrears:
+  type_string: YEARLY_IN_ARREARS
+  description: Yearly In Arrears
+  
+advance:
+  type_string: INADVANCE
+  description: In Advance
+  
+biannually:
+  type_string: BI-ANNUALLY
+  description: Bi-Annually
+
+quarterly:
+  type_string: QUARTERLY
+  description: Quarterly
+  
+quarterly_in_arrears:
+  type_string: QUARTERLY_IN_ARREARS
+  description: Quarterly In Arrears
+
+semi_annually:
+  type_string: SEMI-ANNUALLY
+  description: Semi-Annually
+      
+semi_annually_in_arrears:
+  type_string: SEMI-ANNUALLY_IN_ARREARS
+  description: Semi-Annually In Arrears
+  
+as_needed:
+  type_string: AS_NEEDED
+  description: As Needed
+  
+voluntary:
+  type_string: VOLUNTARY
+  description: Voluntary
+  
+annually:
+  type_string: ANNUALLY
+  description: Annually
+  
+other:
+  type_string: OTHER
+  description: Other
+  
+see_below:
+  type_string: SEE_BELOW
+  description: See Below

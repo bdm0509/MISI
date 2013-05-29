@@ -1,0 +1,30 @@
+<div id="assureds" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Assureds Listings</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Assured", new_assured_path, :id => "create_new_assured", :class => "create_new_button"  %>
+    </div>
+    <%= render :partial => 'assureds/assureds', :object => @assureds %>
+  </div>
+</div> <!-- div#assureds -->
+
+<div id="contact_information" title="Contact Information">
+  <h3><span id="contact_information-title"></span></h3>
+  <p>
+    Contact: <span id="contact_information-contact"></span><br />
+    Phone: <span id="contact_information-phone"></span>
+  </p>
+</div>
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    assured_init_page(<%= @assureds.size %>);
+    
+    <% unless @new_assured_id.nil? %>
+      highlight_assured("<%= @new_assured_id %>");
+    <% end %>
+  });
+</script>
+<% end %>
+

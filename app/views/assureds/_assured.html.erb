@@ -1,0 +1,14 @@
+<tr id="assured-<%= assured.id %>">
+  <td class="assured_title"><%= link_to assured.title , assured_path(assured) %></td>
+  <td class="assured_street"><%= assured.street %></td>
+  <td class="assured_city center"><%= assured.city %></td>
+  <td class="assured_state center"><%= assured.state %></td>
+  <td class="assured_zip center"><%= assured.zip %></td>
+  <td class="assured_fee center"><%= assured.fee.nil? ? "" : "$%4.2f" % assured.fee %></td>
+  <td class="assured_contact center">
+    <a href="javascript:assured_contact_info(<%= assured.id %>);">Contact Information</a>
+    <input type="hidden" class="assured_contact_name" value="<%= assured.contact %>" />
+    <input type="hidden" class="assured_contact_phone" value="<%= assured.phone %>" />
+  </td>
+  <td class="assured_controls"><%= link_to "Delete", assured, :method => :delete, :confirm => "Are you sure?", :class => "button delete" %></td>
+</tr>

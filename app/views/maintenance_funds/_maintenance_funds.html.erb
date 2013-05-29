@@ -1,0 +1,34 @@
+<% if maintenance_funds.size > 0 %>
+<% columns = [
+  {:type => "html", :width => 200},
+  {:type => "html", :width => 160},
+  {:type => "html", :width => 160},
+  {:type => "html", :width => 80},
+  {:type => "html", :width => 75},
+  {:type => "html", :width => 75},
+  {:type => "html", :width => 100},
+  {:type => "html", :sortable => false, :searchable => false, :width => 20}
+]%>
+<% content_for :javascript do %>
+  <%= datatable(columns, { :sort_by => "[0, 'asc']", 
+                           :auto_width => false,
+                           :server_method => "POST",
+                           :ajax_source => datatable_maintenance_funds_path,
+                           :draw_callback => "$('a.button.delete').button({
+                             icons: { primary: 'ui-icon-close' },
+                             text: false
+                           });" }).html_safe %>
+                           
+<% end %>
+
+<table id="maintenance_funds_table" class="display datatable">
+  <thead>
+    <tr><th>Name</th><th>Collector</th><th>Street</th><th>City</th><th>State</th><th>Zip</th><th>Contact</th><% unless @printing %><th>&nbsp;</th><% end %></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'maintenance_funds/maintenance_fund', :collection => maintenance_funds %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no HOAs to display.</p>
+<% end %>

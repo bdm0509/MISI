@@ -1,0 +1,16 @@
+<tr id="maintenance_fund-<%= maintenance_fund.id %>">
+  <td class="maintenance_fund_name"><%= link_to maintenance_fund.name , maintenance_fund_path(maintenance_fund) %></td>
+  <td class="maintenance_fund_collector"><%= maintenance_fund.collector %></td>
+  <td class="maintenance_fund_street"><%= maintenance_fund.street %></td>
+  <td class="maintenance_fund_city center"><%= maintenance_fund.city %></td>
+  <td class="maintenance_fund_state center"><%= maintenance_fund.state %></td>
+  <td class="maintenance_fund_zip center"><%= maintenance_fund.zip %></td>
+  <td class="maintenance_fund_contact center">
+    <a href="javascript:maintenance_fund_contact_info(<%= maintenance_fund.id %>);">Contact Information</a>
+    <input type="hidden" class="maintenance_fund_contact_name" value="<%= maintenance_fund.contact %>" />
+    <input type="hidden" class="maintenance_fund_contact_phone" value="<%= maintenance_fund.phone %>" />
+  </td>
+  <% unless @printing %>
+    <td class="maintenance_fund_controls"><%= link_to "Delete", maintenance_fund, :method => :delete, :confirm => "Are you sure?", :class => "button delete" %></td>
+  <% end %>
+</tr>
