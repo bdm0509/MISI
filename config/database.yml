@@ -6,6 +6,14 @@
 #  pool: 5
 #  timeout: 5000
 development:
+  adapter: postgresql
+  host: localhost
+  database: misi_development
+  username: postgres
+  password: postgres
+  port: 5432
+
+old_development:
   adapter: mysql2
   database: misi_development
   username: root
