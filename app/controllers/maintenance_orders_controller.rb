@@ -106,12 +106,12 @@ class MaintenanceOrdersController < ApplicationController
   
   def update_special_characters
     @msg = ""
-    MaintenanceOrder.where('special_instructions LIKE ?', '%&amp;%').each do |mo|
+    MaintenanceOrder.where('special_instructions ILIKE ?', '%&amp;%').each do |mo|
       @msg += "Replacing special character &amp; in special instructions for maintenance order '#{mo.order_date}'...\n"
       mo.special_instructions = mo.special_instructions.gsub(/\&amp;/, "&")
       mo.save!
     end
-    MaintenanceOrder.where('amenities LIKE ?', '%&amp;%').each do |mo|
+    MaintenanceOrder.where('amenities ILIKE ?', '%&amp;%').each do |mo|
       @msg += "Replacing special character &amp; in amenities for maintenance order '#{mo.order_date}'...\n"
       mo.amenities = mo.amenities.gsub(/\&amp;/, "&")
       mo.save!
