@@ -58,7 +58,7 @@ class MaintenanceOrdersController < ApplicationController
     @maintenance_order.order_date = Date.strptime(params[:maintenance_order][:order_date], "%m/%d/%Y") unless params[:maintenance_order][:order_date].empty?
     
     if @maintenance_order.save
-      redirect_to :controller => 'maintenance_orders', :action => 'index', :id => @maintenance_order.id
+      redirect_to :controller => 'maintenance_orders', :action => 'show', :id => @maintenance_order.id
     else
       @title = "Create New Maintenance Order"
       render 'new'
