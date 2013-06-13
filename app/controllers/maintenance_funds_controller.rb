@@ -140,12 +140,12 @@ class MaintenanceFundsController < ApplicationController
   
   def update_special_characters
     @msg = ""
-    MaintenanceFund.where('instructions LIKE ?', '%&amp;%').each do |hoa|
+    MaintenanceFund.where('instructions ILIKE ?', '%&amp;%').each do |hoa|
       @msg += "Replacing special character &amp; in special instructions for HOA '#{hoa.name}'...\n"
       hoa.instructions = hoa.instructions.gsub(/\&amp;/, "&")
       hoa.save!
     end
-    MaintenanceFund.where('amenities LIKE ?', '%&amp;%').each do |hoa|
+    MaintenanceFund.where('amenities ILIKE ?', '%&amp;%').each do |hoa|
       @msg += "Replacing special character &amp; in amenities for HOA '#{hoa.name}'...\n"
       hoa.amenities = hoa.amenities.gsub(/\&amp;/, "&")
       hoa.save!
@@ -185,11 +185,11 @@ private
   def conditions
     conditions = []
     match_string = ActiveRecord::Base.connection.quote("%#{params[:sSearch]}%")
-    conditions << "(maintenance_funds.name LIKE #{match_string} OR " +
-                  "maintenance_funds.collector LIKE #{match_string} OR " +
-                  "maintenance_funds.street LIKE #{match_string} OR " +
-                  "maintenance_funds.zip LIKE #{match_string} OR " +
-                  "maintenance_funds.street LIKE #{match_string})" if (params[:sSearch])
+    conditions << "(maintenance_funds.name ILIKE #{match_string} OR " +
+                  "maintenance_funds.collector ILIKE #{match_string} OR " +
+                  "maintenance_funds.street ILIKE #{match_string} OR " +
+                  "maintenance_funds.zip ILIKE #{match_string} OR " +
+                  "maintenance_funds.street ILIKE #{match_string})" if (params[:sSearch])
     return conditions.join(" AND ")
   end
 end
