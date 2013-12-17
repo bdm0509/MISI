@@ -1,7 +1,7 @@
 <% if maintenance_orders.size > 0 %>
 <table id="maintenance_orders_table" class="display">
   <thead>
-    <tr><th>Report Date</th><th>GF #</th><th>Assured</td><th>Seller</th><th>Address</th><th>&nbsp;</th></tr>
+    <tr><th>Report Date</th><th>Order Date</th><th>GF #</th><th>Assured</td><th>Seller</th><th>Address</th><th>&nbsp;</th></tr>
   </thead>
   <tbody>
     <%= render :partial => 'maintenance_orders/maintenance_order', :collection => maintenance_orders %>
