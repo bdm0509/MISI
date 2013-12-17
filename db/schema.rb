@@ -11,22 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204223301) do
-
-  create_table "admins", :force => true do |t|
-    t.string   "email",              :default => "", :null => false
-    t.string   "encrypted_password", :default => "", :null => false
-    t.integer  "sign_in_count",      :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",    :default => 0
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131217143949) do
 
   create_table "assureds", :force => true do |t|
     t.string   "title"
@@ -36,24 +21,24 @@ ActiveRecord::Schema.define(:version => 20121204223301) do
     t.string   "zip"
     t.string   "phone"
     t.string   "contact"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.float    "fee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "fee",        :precision => 4, :scale => 2
   end
 
   create_table "fee_collection_types", :force => true do |t|
     t.string   "type_string"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maintenance_fund_fees", :force => true do |t|
     t.integer  "maintenance_fund_id"
     t.integer  "year"
     t.string   "amount"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "fee_collection_type_id"
     t.string   "how_collected"
     t.string   "other_fee_type"
@@ -69,9 +54,10 @@ ActiveRecord::Schema.define(:version => 20121204223301) do
     t.string   "phone"
     t.string   "contact"
     t.text     "instructions"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "amenities"
+    t.string   "email"
   end
 
   create_table "maintenance_orders", :force => true do |t|
@@ -86,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20121204223301) do
     t.integer  "maintenance_fund_id"
     t.text     "special_instructions"
     t.text     "amenities"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "delinquent"
     t.string   "gf"
     t.string   "hoa_fee"
@@ -99,38 +85,39 @@ ActiveRecord::Schema.define(:version => 20121204223301) do
     t.string   "hoa_zip"
     t.string   "hoa_phone"
     t.string   "order_status"
+    t.string   "hoa_email"
   end
 
   create_table "order_status_types", :force => true do |t|
     t.string   "type_string"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "text_blocks", :force => true do |t|
     t.string   "name"
     t.text     "text_block"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin",                  :default => false
+    t.boolean  "admin",                                 :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -345,6 +345,7 @@ function maintenance_order_init_page(num_maintenance_orders) {
       "aoColumns": [
         { "bSearchable": true, "sWidth": "80px" },
         { "bSearchable": true, "sWidth": "80px" },
+        { "bSearchable": true, "sWidth": "80px" },
         { "bSearchable": true, "sWidth": "180px" },
         { "bSearchable": true, "sWidth": "80px" },
         { "bSearchable": true, "sWidth": "250px" },
