@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217143949) do
+ActiveRecord::Schema.define(:version => 20131217163728) do
 
   create_table "assureds", :force => true do |t|
     t.string   "title"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20131217143949) do
     t.datetime "updated_at"
     t.text     "amenities"
     t.string   "email"
+    t.string   "fax"
   end
 
   create_table "maintenance_orders", :force => true do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20131217143949) do
     t.string   "hoa_phone"
     t.string   "order_status"
     t.string   "hoa_email"
+    t.string   "hoa_fax"
   end
 
   create_table "order_status_types", :force => true do |t|

@@ -94,11 +94,16 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align: right;">
-        <b>Phone:</b>
+      <td align="right">
+        <b>Phone:</b> <%= @maintenance_order.hoa_phone %>
       </td>
-      <td colspan="2">
-        <%= @maintenance_order.hoa_phone %>
+      <td align="center" colspan="2">
+        <b>Fax:</b>
+        <% if @maintenance_order.hoa_fax.nil? || @maintenance_order.hoa_fax.blank? %>
+          <i>None specified</i><br />
+        <% else %>
+          <%= @maintenance_order.hoa_fax %><br />
+        <% end %>
       </td>
     </tr>
     <tr>
@@ -106,7 +111,11 @@
         <b>E-Mail:</b>
       </td>
       <td colspan="2">
-        <%= @maintenance_order.hoa_email %>
+        <% if @maintenance_order.hoa_email.nil? || @maintenance_order.hoa_email.blank? %>
+          <i>None specified</i><br />
+        <% else %>
+          <%= @maintenance_order.hoa_email %><br />
+        <% end %>
       </td>
     </tr>
     <tr>
