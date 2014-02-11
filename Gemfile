@@ -15,8 +15,6 @@ gem "will_paginate", "~> 3.0"
 gem "high_voltage"
 gem "pdfcrowd"
 
-gem "rufus-scheduler"
-
 group :development do
   gem 'sqlite3'
   gem 'daemons'

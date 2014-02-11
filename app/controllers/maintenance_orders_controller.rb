@@ -3,7 +3,15 @@ class MaintenanceOrdersController < ApplicationController
   
   def index
     @title = "Maintenance Order Listings"
-    @maintenance_orders = MaintenanceOrder.find_all_by_archived(false)
+    
+    # Convert string flag to a boolean
+    archive_flag = params[:show_archived] || false
+    @showing_archived = false
+    @showing_archived = true if archive_flag == true || archive_flag =~ (/(true|t|yes|y|1)$/i)
+    
+puts "showing_archived is #{@showing_archived}"
+    
+    @maintenance_orders = MaintenanceOrder.find_all_by_archived(@showing_archived)
     @new_maintenance_order_id = params[:id]
   end
   
