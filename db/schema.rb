@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217163728) do
+ActiveRecord::Schema.define(:version => 20140211140429) do
 
   create_table "assureds", :force => true do |t|
     t.string   "title"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20131217163728) do
     t.string   "order_status"
     t.string   "hoa_email"
     t.string   "hoa_fax"
+    t.boolean  "archived",             :default => false
   end
 
   create_table "order_status_types", :force => true do |t|
