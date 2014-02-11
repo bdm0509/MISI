@@ -155,9 +155,9 @@
       <b>Special Instructions:</b> <%= @maintenance_order.special_instructions %><br />
     <% end %>
     <% if @maintenance_order.amenities.nil? || @maintenance_order.amenities.blank? %>
-      <b>Amenities:</b> <i>Call HOA for details if needed</i><br />
+      <b>Additional Information:</b> <i>Call HOA for details if needed</i><br />
     <% else %>
-      <b>Amenities:</b> <%= @maintenance_order.amenities %><br />
+      <b>Additional Information:</b> <%= @maintenance_order.amenities %><br />
     <% end %>
   </p>
   <p style="font-size: 90%; text-align: justify;">

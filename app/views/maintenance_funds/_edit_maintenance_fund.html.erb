@@ -27,7 +27,7 @@
   </fieldset>
   <fieldset class="align">
     <%= f.label :instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %>
-    <%= f.label :amenities, "Amenities:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
+    <%= f.label :amenities, "Additional Information:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
   </fieldset>
   <fieldset class="align center">
     <%= link_to "Add New Fee", "javascript:add_maintenance_fund_fee();", :id => "create_new_maintenance_fund_fee", :class => "create_new_button" %>
