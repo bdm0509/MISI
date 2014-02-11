@@ -11,7 +11,11 @@ class MaintenanceOrdersController < ApplicationController
     
 puts "showing_archived is #{@showing_archived}"
     
-    @maintenance_orders = MaintenanceOrder.find_all_by_archived(@showing_archived)
+    if @showing_archived
+      @maintenance_orders = MaintenanceOrder.all
+    else
+      @maintenance_orders = MaintenanceOrder.find_all_by_archived(@showing_archived)
+    end
     @new_maintenance_order_id = params[:id]
   end
   

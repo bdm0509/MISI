@@ -10,7 +10,7 @@
   <div class="ui-widget-content ui-corner-bottom">
     <div class="content_controls">
       <%= link_to "Create New Maintenance Order", new_maintenance_order_path, :id => "create_new_maintenance_order", :class => "create_new_button" %>
-      <%= link_to @showing_archived ? "Show Only Active Orders" : "Show Archived Orders", 
+      <%= link_to @showing_archived ? "Show Only Active Orders" : "Show Active and Archived Orders", 
           maintenance_orders_path(:show_archived => !@showing_archived), :id => "show_archived_orders", :class => "create_new_button" %>
     </div>
     <%= render :partial => 'maintenance_orders/maintenance_orders', :object => @maintenance_orders %>
