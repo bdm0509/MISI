@@ -334,6 +334,7 @@ function highlight_maintenance_fund_fee(maintenance_fund_fee_id) {
 ///////////////////////////////////////////////////////////////
 function maintenance_order_init_page(num_maintenance_orders) {
   $('#create_new_maintenance_order').button();
+  $('#show_archived_orders').button();
   
   if (num_maintenance_orders > 0) {
     $('#maintenance_orders_table').dataTable({
