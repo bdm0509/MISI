@@ -4,7 +4,6 @@ gem 'rails', '3.2.13'
 gem 'thin'
 gem 'nokogiri'
 gem 'activerecord'
-gem 'nokogiri'
 gem 'jquery-rails'
 gem 'mysql2'
 gem 'pg' 
@@ -15,6 +14,8 @@ gem "rufus-scheduler"
 gem "will_paginate", "~> 3.0"
 gem "high_voltage"
 gem "pdfcrowd"
+
+gem "rufus-scheduler"
 
 group :development do
   gem 'sqlite3'
