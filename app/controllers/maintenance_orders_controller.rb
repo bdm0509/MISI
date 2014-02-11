@@ -3,7 +3,7 @@ class MaintenanceOrdersController < ApplicationController
   
   def index
     @title = "Maintenance Order Listings"
-    @maintenance_orders = MaintenanceOrder.all
+    @maintenance_orders = MaintenanceOrder.find_all_by_archived(false)
     @new_maintenance_order_id = params[:id]
   end
   
