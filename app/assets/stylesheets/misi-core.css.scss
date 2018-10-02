@@ -1,0 +1,554 @@
+/* /////////////////////////////////////////////////
+//
+// MIXINS
+//
+///////////////////////////////////////////////// */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* /////////////////////////////////////////////////
+//
+// GLOBAL
+//
+///////////////////////////////////////////////// */
+
+body {
+  font-family: Helvetica;
+  font-size: 13px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  margin: 10px 0px;
+}
+
+.center {
+  text-align: center;
+}
+
+.warning {
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 0;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+/* /////////////////////////////////////////////////
+//
+// TABLES
+//
+///////////////////////////////////////////////// */
+
+td.center {
+  text-align: center;
+}
+
+/* /////////////////////////////////////////////////
+//
+// FORMS
+//
+///////////////////////////////////////////////// */
+
+form.align {
+  width: 95%;
+}
+
+form.right {
+
+}
+
+form label.align {
+  display: block;
+  float: left;
+  margin: 9px 0 0;
+  text-align: right;
+  width: 140px;
+}
+
+form label.select {
+  margin-top: 6px;
+}
+
+form select {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+form label.popup-align {
+  display: block;
+  float: left;
+  margin: 2px 0 0;
+  padding: 7px 3px 0;
+  text-align: right;
+  width: 140px;
+}
+
+form input.align, form textarea.align, form select.align {
+  font-family: verdana, arial, helvetica, sans-serif !important;
+  font-size: 12px !important;
+  margin: 5px 0 5px 5px;
+  padding: 2px;
+}
+
+form textarea.align {
+  margin-left: 12px;
+}
+
+form.hr {
+  width: 85%;
+  color: lightgray;
+  background-color: lightgray;
+}
+
+form label.error {
+  color: red;
+  font-style: italic;
+  padding: 0 0 0 180px;
+}
+
+fieldset {
+	border: 1px solid;
+  clear: both;
+	padding: 10px;
+}
+
+fieldset.align {
+  margin: 10px 10px 10px 28px;
+}
+
+form.align br, fieldset.align br {
+  clear: left;
+}
+
+.right_header {
+  float: right;
+  margin: 5px 10px 15px 0px;
+}
+
+fieldset.form_controls {
+  text-align: center;
+}
+
+fieldset.warning {
+  border: none;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+	display: inline;
+  .form-control {
+    color: #a94442;
+  }
+}
+
+/* /////////////////////////////////////////////////
+//
+// FLASH AND ERRORS
+//
+///////////////////////////////////////////////// */
+div.danger, div.info, div.success {
+  border: 2px solid #DDD;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 0.9em;
+  font-style: italic;
+  height: 18px;
+  padding: 5px 28px;
+  position: relative;
+  text-align: center;
+}
+
+div.success {
+  background: #E6EFC2;
+  border-color: #C6D880;
+  color: #264409;
+}
+
+div.danger {
+  background: #FBE3E4;
+  border-color: #FBC2C4;
+  color: #8A1F11;
+}
+
+/* ////////////////////////////////////////////////
+//
+// SITE HEADER
+//
+///////////////////////////////////////////////// */
+header {
+  border-bottom: 15px solid #2d2725;
+  height: 130px;
+  width: 100%;
+}
+
+#header_logo, #header_name, #header_contact {
+  margin-top: 23px;
+}
+
+#header_logo {
+  border-right: 1px solid #979797;
+  float: left;
+  height: 71px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  width: 170px;
+}
+
+#header_logo img {
+  float: right;
+  margin: 5px 8px 0 0;
+}
+
+#header_name {
+  float: left;
+}
+
+#header_name img {
+  margin: 5px 0 0 7px;
+}
+
+#header_contact {
+  float: left;
+  left: 635px;
+//	float: right;
+	padding-right: 10px;
+  position: relative;
+}
+
+#header_contact p {
+  color: #979797;
+  font-family: Arial,sans-serif;
+  font-size: 8pt;
+  font-style: italic;
+  text-align: right;
+}
+
+/* /////////////////////////////////////////////////
+//
+// SITE NAVIGATION
+//
+///////////////////////////////////////////////// */
+nav {
+  border-bottom: 1px solid #979797;
+  border-right: 1px solid #979797;
+  clear: both;
+  float: left;
+  margin: 0 0px 10px 10px;
+  width: 170px;
+}
+
+ul#navigation_menu {
+	background-color: white;
+  font-family: Arial;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  width: 100px;
+}
+
+ul#navigation_menu li {
+  background-color: transparent;
+  border-bottom: black solid 1px;
+  float: right;
+  padding-right: 8px;
+  text-align: right;
+}
+
+ul#navigation_menu li li {
+  background-color: white !important;
+  border: 1px dotted #979797;
+  float: none;
+  text-align: left;
+  width: 100%;
+}
+
+ul#navigation_menu li a {
+  border-top: none;
+  color: #979797;
+  margin-right: 5px;
+  padding: 12px 0 2px 15px;
+}
+
+ul#navigation_menu li li a {
+  color: #979797;
+  margin-right: 0px;
+}
+
+ul#navigation_menu li a:hover {
+  color: #0078b9;
+}
+
+#navigation_menu {
+	border: 0 !important;
+	font-size: 14px !important;
+}
+
+#navigation_menu .ui-state-focus {
+  background-color: transparent !important;
+	border-bottom: black solid 1px !important;
+}
+
+/* /////////////////////////////////////////////////
+//
+// SITE FOOTER
+//
+///////////////////////////////////////////////// */
+footer {
+  background-color: #2d2725;
+  clear: both;
+  height: 40px;
+  width: 100%;
+}
+
+/* /////////////////////////////////////////////////
+//
+// PAGE (Content)
+//
+///////////////////////////////////////////////// */
+#page {
+  margin: 0 0 10px;
+  max-width: 900px;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+#content {
+  margin: 28px 20px;
+}
+
+#content div h2 {
+  font-size: 1.0em;
+  padding: 2px 5px;
+  margin-bottom: 0px;
+}
+
+div.content_controls {
+  text-align: center;
+}
+
+/* /////////////////////////////////////////////////
+//
+// SIGN IN/SIGN UP/SIGN OUT
+//
+///////////////////////////////////////////////// */
+.sign_in {
+  width: 600px;
+}
+
+.sign_in form {
+  padding: 5px;
+}
+
+.sign_in_button {
+  margin: 5px 0;
+}
+
+.sign_in .center {
+  align: center;
+  margin-top: 5px;
+  width: 440px;
+}
+
+.sign_in_help_links {
+  float: right;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ////////////////////////////////////////////////
+//
+// ASSUREDS and MAINTENANCE FUNDS
+//
+///////////////////////////////////////////////// */
+.listing_div {
+  width: 630px;
+}
+
+
+.listing_div p {
+  padding: 0 5px;
+}
+
+a.create_new_button {
+  margin: 10px 10px;
+}
+
+#dialog-confirm {
+  display: none;
+}
+
+#maintenance_fund_fee_information form select {
+	margin-top: 8px;
+}
+
+/* ////////////////////////////////////////////////
+//
+// SIDEBAR
+//
+///////////////////////////////////////////////// */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* ////////////////////////////////////////////////
+//
+// jQuery OVERRIDES
+//
+///////////////////////////////////////////////// */
+input.ui-button {
+  padding: 0.2em 0.6em;
+}
+
+span.ui-button-text {
+  padding: 0.2em 0.6em !important;
+}
+
+.ui-widget {
+  font-size: 1.0em !important;
+}
+
+.ui-button-icon-only {
+  height: 14px !important;
+  width: 14px !important;
+}
+
+.dataTables_wrapper {
+  min-height: 0 !important;
+}
+
+.ui-widget-content {
+  padding: 5px;
+}
+
+.ui-state-focus {
+	border: 0 !important;
+	background: transparent !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close span {
+	margin: -8px !important;
+}
+
+/* ////////////////////////////////////////////////
+//
+// DataTables OVERRIDES
+//
+///////////////////////////////////////////////// */
+
+.fg-button {
+	width: 25px;
+	padding: 2px;
+	margin: 5px;
+}
+
+.previous {
+  width: 60px;	
+}
+
+.next {
+	width: 40px;
+}
+
+/* ////////////////////////////////////////////////
+//
+// Superfish OVERRIDES
+//
+///////////////////////////////////////////////// */
+.sf-vertical, .sf-vertical li {
+    width: 160px !important;
+}
+
+.sf-sub-indicator {
+  height: 14px !important;
+  right: -0.7em !important;
+}
+
+.sf-menu ul {
+  width: 180px;
+}
+
+.sf-menu li, .sf-menu ul li {
+  white-space: nowrap;
+}
+
+.sf-vertical li:hover ul, .sf-vertical li.sfHover ul {
+  left: 175px !important;
+}
+
+/* ////////////////////////////////////////////////
+//
+// Printing OVERRIDES
+//
+///////////////////////////////////////////////// */
+
+#print_maintenance_funds_table {
+  font-family: Arial;
+  font-size: 6pt;
+}
+
+#print_maintenance_funds_table tr {
+  border-bottom: 1px solid black;
+}
+
+/* ////////////////////////////////////////////////
+//
+// DEBUGGING
+//
+///////////////////////////////////////////////// */
+
+.debug_dump {
+	background-color: $gray-medium-light;
+  clear: both;
+  float: left;
+	padding: 10px;
+  width: 95%;
+  margin: 25px 10px 10px 20px;
+  @include box_sizing;
+}

@@ -1,0 +1,27 @@
+<% unless @printing %>
+  <nav>
+    <ul id="navigation_menu" class="sf-menu sf-vertical">
+      <li><%= link_to "Home", root_path %></li>
+      <% if logged_in? %> 
+        <li><%= link_to "Maintenance Orders", '#' %></li>
+        <li><%= link_to "HOAs", '#' %></li>
+        <li><%= link_to "Assureds", '#' %></li>
+
+        <% if current_user.admin? %>
+          <li><%= link_to "Administration", '#' %>
+            <ul>
+              <li><%= link_to "Fee Collection Types", '#' %></li>
+              <li><%= link_to "Add User", '#' %></li>
+            </ul>
+          </li>
+        <% end %>
+          
+        <li><%= link_to "Edit Profile", current_user %></li>
+        <li><%= link_to "Change Password", current_user %></li>
+        <li><%= link_to("Sign Out", logout_path, :method => 'delete') %></li>
+      <% else %>
+        <li><%= link_to('Sign In', login_path) %></li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>
