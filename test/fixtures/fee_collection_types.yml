@@ -1,0 +1,3 @@
+upfront_fee_collection:
+  type_string: upfront-fee
+  description: All fees are collected upfront and in full
