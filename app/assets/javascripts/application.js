@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
+//= require jquery.dataTables
   
 //= require_tree .

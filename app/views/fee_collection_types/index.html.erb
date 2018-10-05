@@ -1,0 +1,21 @@
+<div id="fee_collection_types" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Fee Collection Types</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Fee Collection Type", new_fee_collection_type_path, :id => "create_new_fee_collection_type", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'fee_collection_types/fee_collection_types', :object => @fee_collection_types %>
+  </div>
+</div> <!-- div#fee_collection_types -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    fee_collection_type_init_page(<%= @fee_collection_types.size %>);
+    
+    <% unless @new_fee_collection_type_id.nil? %>
+      highlight_fee_collection_type("<%= @new_fee_collection_type_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

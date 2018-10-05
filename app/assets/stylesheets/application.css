@@ -12,6 +12,7 @@
  *
  *= require jquery-ui
  *= require jquery-ui-1.8.16.custom
+ *= require jquery.dataTables
  *
  *= require_tree .
  *= require_self

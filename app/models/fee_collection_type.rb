@@ -22,7 +22,7 @@ private
   def set_type_string
     description = read_attribute(:description)
     unless description.nil?
-      write_attribute(:type_string, description.gsub(/\s+/, "").upcase)
+      write_attribute(:type_string, description.gsub(/\s+/, "_").upcase)
     end
   end
 end

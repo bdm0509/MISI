@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # Log the user in and go to dashboard
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or dashboard_path
+      redirect_back_or main_path
     else
       # Show errors
       flash.now[:danger] = "Your email and password combination is incorrect."
