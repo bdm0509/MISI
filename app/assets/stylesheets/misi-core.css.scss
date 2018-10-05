@@ -496,6 +496,29 @@ span.ui-button-text {
 	width: 40px;
 }
 
+.dataTables_paginate {
+  position: relative;
+  top: -6px;
+}
+
+.dataTables_paginate .ui-button {
+  width: 23px !important;
+}
+
+div.dataTables_wrapper .ui-widget-header {
+  height: 35px !important;
+  position: -10px;
+}
+
+div.dataTables_length label {
+  font-weight: normal;
+}
+
+div.dataTables_length select {
+  color: black;
+  font-size: 0.9em;
+}
+
 /* ////////////////////////////////////////////////
 //
 // Superfish OVERRIDES

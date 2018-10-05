@@ -1,5 +1,5 @@
-//@import "bootstrap-sprockets";
-//@import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 /* mixins, variables, etc. */
 
@@ -66,8 +66,8 @@ aside {
 }
 
 .field_with_errors {
-  //@extend .has-error;
+  @extend .has-error;
   .form-control {
-    //color: $state-danger-text;
+    color: $state-danger-text;
   }
 }
