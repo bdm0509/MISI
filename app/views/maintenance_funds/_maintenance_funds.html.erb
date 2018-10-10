@@ -1,0 +1,12 @@
+<% if maintenance_funds.size > 0 %>
+<table id="maintenance_funds_table" class="display datatable" 
+       data-source="<%= maintenance_funds_url(format: "json") %>">
+  <thead>
+    <tr><th>Name</th><th>Collector</th><th>Street</th><th>City</th><th>State</th><th>Zip</th><th>Contact</th><% unless @printing %><th>&nbsp;</th><% end %></tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no HOAs to display.</p>
+<% end %>

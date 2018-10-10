@@ -1,0 +1,12 @@
+<% if maintenance_orders.size > 0 %>
+<table id="maintenance_orders_table" class="display datatable"
+       data-source="<%= maintenance_orders_url(format: :json, :show_archived => @showing_archived) %>">
+  <thead>
+    <tr><th>Report Date</th><th>Order Date</th><th>GF #</th><th>Assured</td><th>Seller</th><th>Address</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no maintenance orders to display.</p>
+<% end %>

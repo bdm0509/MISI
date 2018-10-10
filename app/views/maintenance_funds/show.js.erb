@@ -1,0 +1,12 @@
+$("#maintenance_order_hoa_collector").val("<%= @maintenance_fund.collector %>");
+$("#maintenance_order_hoa_street").val("<%= @maintenance_fund.street %>");
+$("#maintenance_order_hoa_city").val("<%= @maintenance_fund.city %>");
+$("#maintenance_order_hoa_state").val("<%= @maintenance_fund.state %>");
+$("#maintenance_order_hoa_zip").val("<%= @maintenance_fund.zip %>");
+$("#maintenance_order_hoa_phone").val("<%= @maintenance_fund.phone %>");
+$("#maintenance_order_hoa_fax").val("<%= @maintenance_fund.fax %>");
+$("#maintenance_order_hoa_email").val("<%= @maintenance_fund.email %>");
+$("#maintenance_order_hoa_fee").val("<%= @maintenance_fund_fee_amount %>");
+$("#maintenance_order_hoa_fee_year").val("<%= @maintenance_fund_fee_year %>");
+$("#maintenance_order_special_instructions").val("<%=j @maintenance_fund.instructions.html_safe %>");
+$("#maintenance_order_amenities").val("<%=j @maintenance_fund.amenities.html_safe %>");

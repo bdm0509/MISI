@@ -15,7 +15,7 @@ class FeeCollectionTypeTest < ActiveSupport::TestCase
     @fee_collection_type.type_string = ""
     description = @fee_collection_type.description
     assert @fee_collection_type.valid?
-    assert @fee_collection_type.type_string == description.gsub(/\s+/, "").upcase
+    assert @fee_collection_type.type_string == description.gsub(/\s+/, "_").upcase
   end
   
   test "description should be present" do

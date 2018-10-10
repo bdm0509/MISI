@@ -1,0 +1,28 @@
+<div id="maintenance_fund" class="ui-corner-all listing_div">
+  <h2 class="ui-widget-header ui-corner-top"><%= @maintenance_fund.name %></h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <%= render :partial => "maintenance_funds/edit_maintenance_fund", :locals => { :maintenance_fund_type => "edit" } %>
+  </div>
+</div> <!-- div#maintenance_fund -->
+
+<div id="maintenance_fund_fee_information" title="HOA Fee Listing">
+  <form id="fee_listing_form" class="align">
+    <h3 class="center">Fee Listing for <input type="text" id="maintenance_fund_fee_year" name="maintenance_fund_fee_year" size="4" /></h3>
+    <label for="maintenance_fund_fee_amount" class="popup-align">Amount</label>: 
+    $<input type="text" id="maintenance_fund_fee_amount" name="maintenance_fund_fee_amount" class="align" size="20" /><br />
+    <label for="maintenance_fund_fee_collected" class="popup-align">Collected</label>:
+    &nbsp;<%= collection_select(:maintenance_fund_fee, :fee_collection_type_id, FeeCollectionType.all, :id, :description, 
+              options = { :prompt => true }, :class => "align" ) %>
+    <input type="hidden" id="maintenance_fund_id" name="maintenance_fund_id" value="<%= @maintenance_fund.id %>" />
+    <input type="hidden" id="maintenance_fund_fee_id" name="maintenance_fund_fee_id" />
+    <input type="hidden" id="maintenance_fund_fee_year" name="maintenance_fund_fee_id" />
+  </form>
+</div>
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    maintenance_fund_fees_init_page(<%= @maintenance_fund.maintenance_fund_fees.length %>);
+  });
+</script>
+<% end %>

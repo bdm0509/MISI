@@ -11,5 +11,14 @@ Rails.application.routes.draw do
   resources :users
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
-  resources :fee_collection_types
+  resources               :assureds
+  resources               :fee_collection_types
+  resources               :maintenance_funds
+  resources               :maintenance_orders
+  
+  resources :maintenance_fund_fees do
+    member do
+      post 'update'
+    end
+  end
 end

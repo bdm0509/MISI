@@ -1,11 +1,10 @@
 <% unless @printing %>
   <nav>
     <ul id="navigation_menu" class="sf-menu sf-vertical">
-      <li><%= link_to "Home", root_path %></li>
       <% if logged_in? %> 
-        <li><%= link_to "Maintenance Orders", '#' %></li>
-        <li><%= link_to "HOAs", '#' %></li>
-        <li><%= link_to "Assureds", '#' %></li>
+        <li><%= link_to "Maintenance Orders", maintenance_orders_path %></li>
+        <li><%= link_to "HOAs", maintenance_funds_path %></li>
+        <li><%= link_to "Assureds", assureds_path %></li>
 
         <% if current_user.admin? %>
           <li><%= link_to "Administration", '#' %>

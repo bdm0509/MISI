@@ -1,0 +1,30 @@
+<div id="maintenance_orders" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Maintenance Orders 
+    <i>
+      <% if @showing_archived %>
+        (Showing active and archived orders)
+      <% else %>
+        (Showing only active orders)
+      <% end %>
+    </i></h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Maintenance Order", new_maintenance_order_path, :id => "create_new_maintenance_order", :class => "create_new_button" %>
+      <%= link_to @showing_archived ? "Show Only Active Orders" : "Show Active and Archived Orders", 
+          maintenance_orders_path(:show_archived => !@showing_archived), :id => "show_archived_orders", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'maintenance_orders/maintenance_orders', :object => @maintenance_orders %>
+  </div>
+</div> <!-- div#maintenance_orders -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    maintenance_order_init_page(<%= @maintenance_orders.size %>);
+    
+    <% unless @new_maintenance_order_id.nil? %>
+      highlight_maintenance_order("<%= @new_maintenance_order_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

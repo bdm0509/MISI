@@ -519,6 +519,14 @@ div.dataTables_length select {
   font-size: 0.9em;
 }
 
+a.underline {
+  text-decoration: underline;
+}
+
+#maintenance_orders_table thead tr th {
+  text-align: center;
+}
+
 /* ////////////////////////////////////////////////
 //
 // Superfish OVERRIDES

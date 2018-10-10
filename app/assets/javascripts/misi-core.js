@@ -20,7 +20,7 @@ function init_navigation_menu() {
 // This function initializes all the stock jQuery and jQuery UI controls so
 //   that any element on the page can turn itself into a control
 //
-function init_jquery_ui_controls() {
+function init_jquery_ui_controls() {  
   $("input[type=submit]").button();
   $("input:reset").button();
   $("a.button").button();
@@ -189,7 +189,7 @@ function maintenance_order_init_page(num_maintenance_orders) {
 			"bProcessing":     true,
 			"bServerSide":    true,
 			"sAjaxSource":    $('#maintenance_orders_table').data('source'),
-			"fnInitComplete": function(oSettings, json) {
+			"fnDrawCallback": function(oSettings, json) {
 			  $("a.button.delete").button({
 			    icons: { primary: "ui-icon-close" },
 			    text: false
@@ -231,7 +231,7 @@ function maintenance_fund_init_page(num_maintenance_funds) {
 			"bProcessing":     true,
 			"bServerSide":    true,
 			"sAjaxSource":    $('#maintenance_funds_table').data('source'),
-			"fnInitComplete": function(oSettings, json) {
+			"fnDrawCallback": function(oSettings, json) {
 			  $("a.button.delete").button({
 			    icons: { primary: "ui-icon-close" },
 			    text: false

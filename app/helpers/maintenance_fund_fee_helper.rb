@@ -1,0 +1,2 @@
+module MaintenanceFundFeeHelper
+end

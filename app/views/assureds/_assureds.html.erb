@@ -1,0 +1,12 @@
+<% if assureds.size > 0 %>
+<table id="assureds_table" class="display">
+  <thead>
+    <tr><th>Title</th><th>Street</th><th>City</th><th>State</th><th>Zip</th><th>Fee</th><th>Contact</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'assureds/assured', :collection => assureds %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no assureds to display.</p>
+<% end %>
