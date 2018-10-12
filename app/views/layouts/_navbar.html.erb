@@ -10,13 +10,13 @@
           <li><%= link_to "Administration", '#' %>
             <ul>
               <li><%= link_to "Fee Collection Types", fee_collection_types_path %></li>
-              <li><%= link_to "Add User", '#' %></li>
+              <li><%= link_to "Add User", new_user_path %></li>
+              <li><%= link_to "List Users", users_path %></li>
             </ul>
           </li>
         <% end %>
           
-        <li><%= link_to "Edit Profile", current_user %></li>
-        <li><%= link_to "Change Password", current_user %></li>
+        <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
         <li><%= link_to("Sign Out", logout_path, :method => 'delete') %></li>
       <% else %>
         <li><%= link_to('Sign In', login_path) %></li>

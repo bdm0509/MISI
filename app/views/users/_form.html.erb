@@ -1,0 +1,25 @@
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+    
+      <fieldset class="align">
+        <%= f.label :first_name, :class => 'align' %>:<%= f.text_field :first_name, :class => 'align' %><br />
+        <%= f.label :last_name, :class => 'align' %>:<%= f.text_field :last_name, :class => 'align' %><br />
+      </fieldset>
+    
+      <fieldset class="align">
+        <%= f.label :email, :class => 'align' %>:<%= f.email_field :email, :class => 'align' %><br />
+        <%= f.label :password, :class => 'align' %>:<%= f.password_field :password, :class => 'align' %><br />
+        <%= f.label :password_confirmation, "Confirm password", :class => 'align' %>:<%= f.password_field :password_confirmation, :class => 'align' %><br />
+	    </fieldset>
+		
+	    <fieldset class="align form_controls">
+	      <%= f.submit yield(:button_text), :class => 'sign_in_button' %><br />
+	    </fieldset>
+		
+	    <fieldset class="align">
+	      <p class="warning">Unauthorized use of this website or misuse of
+	      the information contained herein is strictly prohibited and will result in
+	      the pursuing of legal action against the unauthorized user to the fullest
+	      extent of the law.</p>
+	    </fieldset>
+    <% end %>
