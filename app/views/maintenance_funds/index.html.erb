@@ -4,6 +4,7 @@
   <div class="ui-widget-content ui-corner-bottom">
     <% unless @printing %>
       <div class="content_controls">
+<<<<<<< HEAD
         <%= link_to "Create New HOA", new_maintenance_fund_path, 
 				    :id => "create_new_maintenance_fund", 
 						:class => "create_new_button" %>
@@ -11,6 +12,13 @@
     <% end %>
     <%= render :partial => 'maintenance_funds/maintenance_funds', 
 		           :object => @maintenance_funds %>
+=======
+        <%= link_to "Create New HOA", new_maintenance_fund_path, :id => "create_new_maintenance_fund", :class => "create_new_button" %>
+        <%= link_to "Print HOA Listings", print_maintenance_funds_path, :id => "print_maintenance_funds", :class => "create_new_button" %>
+      </div>
+    <% end %>
+    <%= render :partial => 'maintenance_funds/maintenance_funds', :object => @maintenance_funds %>
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   </div>
 </div> <!-- div#maintenance_funds -->
 
@@ -35,7 +43,11 @@
   <% content_for :head do %>
   <script type="text/javascript">
     $(function() {
+<<<<<<< HEAD
 			maintenance_fund_init_page(<%= @maintenance_funds.size %>);
+=======
+      maintenance_fund_init_page(<%= @num_maintenance_funds %>, "<%= datatable_maintenance_funds_path %>");
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
     
       <% unless @new_maintenance_fund_id.nil? %>
         highlight_maintenance_fund("<%= @new_maintenance_fund_id %>");

@@ -1,6 +1,23 @@
+<<<<<<< HEAD
 <%= form_for(@maintenance_order, :html => { :class => "align validate_me" } ) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 	
+=======
+<% if @maintenance_order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@maintenance_order.errors.count, "error") %> 
+        prohibited this maintenance order from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @maintenance_order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@maintenance_order, :html => { :class => "align validate_me" } ) do |f| %>
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   <fieldset class="align">
     <%= f.label :report_date, "Report Date", :class => "align" %>: <input class="align required datepicker" id="maintenance_order_report_date" name="maintenance_order[report_date]" size="10" type="text" value="<%= maintenance_order_type == "new" ? Time.now.strftime("%m/%d/%Y") : @maintenance_order.report_date.strftime("%m/%d/%Y") %>" /><br />
     <%= f.label :order_date, "Order Date", :class => "align" %>: <input class="align required datepicker" id="maintenance_order_order_date" name="maintenance_order[order_date]" size="10" type="text" value="<%= maintenance_order_type == "new" ? Time.now.strftime("%m/%d/%Y") : @maintenance_order.order_date.strftime("%m/%d/%Y") %>" /><br />

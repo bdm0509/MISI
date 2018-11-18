@@ -1,0 +1,8 @@
+#print_maintenance_funds_table {
+  font-family: Arial;
+  font-size: 6pt;
+}
+
+#print_maintenance_funds_table tr {
+  border-bottom: 1px solid red;
+}

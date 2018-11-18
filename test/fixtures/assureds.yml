@@ -1,9 +1,218 @@
-assured_one:
-  title: Assured 1 
-  street: Street 1
-  city: City 1 
-  zip: 12345 
+adam_bing:
+  title: Adam & Bing, P. C.
+  street: 12611 Jones Road, Suite 200
+  city: Houston
   state: TX
-  phone: 2142871111
-  contact: Mary Malone
-  fee: 61.23
+  zip: 77070
+  phone: 281-765-9310
+  contact: Rhonda
+  fee: 75.78
+  
+alamo_tomball:
+  title: Alamo Title Company - Tomball
+  street: 1002 Village Square Drive A
+  city: Tomball
+  state: TX
+  zip: 77375
+  phone: 281-351-5461
+  contact: Bonnie Mason
+  fee: 75.78
+  
+alamo_1960:
+  title: Alamo Title Company - 1960
+  street: 3303 FM 1960 West
+  city: Houston
+  state: TX
+  zip: 77068
+  phone: 291-444-2775
+  contact: Kerry Wakefield
+  fee: 75.78
+  
+american:
+  title: American Title Company - Deer Park
+  street: 5003 College Park
+  city: Deer Park
+  state: TX
+  zip: 77536
+  phone: 281-479-1913
+  contact: Leslie Hairston
+  fee: 75.78
+  
+charter_corporate:
+  title: Charter Title Company - Corporate
+  state: TX
+  fee: 67.12
+  
+charter_fort_bend:
+  title: Charter Title Company - Fort Bend
+  state: TX
+  fee: 67.12
+
+charter_woodlands:
+  title: Charter Title Company - The Woodlands
+  street: 9595 Six Pines Drive, Suite 6360
+  city: The Woodlands
+  state: TX
+  zip: 77380
+  phone: 281-296-9100
+  contact: Michelle Wilkison
+  fee: 67.12
+  
+charter_vintage:
+  title: Charter Title Company - Vintage Park
+  state: TX
+  contact: Becky Greer
+  fee: 67.12
+  
+charter_west_loop:
+  title: Charter Title Company - West Loop
+  street: 1800 W. Loop South Suite 700
+  city: Houston
+  state: TX
+  zip: 77027
+  phone: 713-850-8525
+  contact: Lynda Sharp
+  fee: 67.12
+  
+charter_woodlands_2:
+  title: Charter Title Company - Woodlands - LA
+  state: TX
+  contact: Linda Anderson
+  fee: 67.12
+  
+commonwealth_memorial:
+  title: Commonwealth Land Title - Memorial
+  street: 15119 Memorial Dr. Suite 106
+  city: Houston
+  state: TX
+  zip: 77079
+  phone: 281-925-3100
+  contact: Wendy Tise
+  fee: 75.00
+  
+commonwealth_houston:
+  title: Commonwealth Title of Houston West Loop
+  street: 1800 West Loop South Suite 700
+  city: Houston
+  state: TX
+  zip: 77027-3210
+  phone: 713-850-8525
+  contact: Barbara Moore
+  fee: 67.12
+  
+fidelity_sugar_land:
+  title: Fidelity National Title Co.- Sugar Land
+  street: 1650 Highway 6 South Suite 160
+  city: Sugar Land
+  state: TX
+  zip: 77478
+  phone: 281-240-2808
+  contact: Luis Rodriguez
+  fee: 75.78
+  
+fidelity_kingwood:
+  title: Fidelity National Title Co.-Kingwood
+  state: TX
+  fee: 75.78
+  
+independence:
+  title: Independence Title Company
+  state: TX
+  fee: 64.95
+  
+infinite_title:
+  title: Infinite Title Solutions
+  street: 2323 South Shepherd, #100
+  city: Houston
+  state: TX
+  zip: 77019
+  phone: 713-523-9003
+  contact: Bea Rusk or Jamie Coody
+  fee: 75.78
+  
+ginsburg:
+  title: Jay Ginsburg, P. C.
+  street: 6575 West Loop South, Suite 600
+  city: Bellaire
+  state: TX
+  zip: 77401
+  phone: 713-665-6575
+  contact:
+  fee: 75.78
+  
+misc:
+  title: Miscellaneous
+  
+old_republic_champions:
+  title: Old Republic Title Company - Champions
+  street: 4201 FM 1960 West, Suite 100
+  city: Houston
+  state: TX
+  zip: 77068
+  phone: 281-893-6110
+  contact: Cathy Matthews
+  fee: 75.78
+  
+old_republic_fort_bend:
+  title: Old Republic Title Company - Fort Bend
+  street: 1600 Highway 6 South Suite 160
+  city: Sugarland
+  state: TX
+  zip: 77478
+  phone: 281-265-9500
+  contact: Diane McClure
+  fee: 75.78
+  
+old_republic_kingwood:
+  title: Old Republic Title Company - Kingwood
+  street: 20031 West Lake Houston Parkway Suite 100
+  city: Kingwood
+  state: TX
+  zip: 77346
+  phone: 281-893-6110
+  contact: Sandy Lee
+  fee: 75.78
+  
+reliant:
+  title: Reliant Title Company
+  street: 
+  city: 
+  state: TX
+  zip: 
+  phone:
+  contact:
+  fee: 64.95
+  
+texas_american:
+  title: Texas American Title Company
+  street: 6671 Southwerst Freeway Suite 300
+  city: Houston
+  state: TX
+  zip: 77074
+  phone: 713-988-9999
+  contact: Vicki Frazier
+  fee: 75.78
+  
+tradition_title:
+  title: Tradition Title Company
+  street: 12428 Memorial Drive
+  city: Houston
+  state: TX
+  zip: 77024
+  phone: 713-973-9700
+  contact: Valerie or Maria
+  fee: 75.78
+  
+tradition_katy:
+  title: Tradition Title Company - Katy
+  street: 
+  city: Katy
+  state: TX
+  zip: 
+  phone:
+  contact:
+  fee: 75.78
+  
+trinity:
+  title: Trinity Title Company
+  fee: 64.95

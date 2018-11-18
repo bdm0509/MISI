@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class User < ApplicationRecord
   attr_accessor :remember_token, :reset_token
   before_save   :downcase_email
@@ -66,4 +67,19 @@ class User < ApplicationRecord
   def downcase_email
     self.email = email.downcase
   end
+=======
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  #devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
+         :recoverable, :rememberable, :trackable, :validatable
+         
+  validates_presence_of :first_name, :last_name
+  validates_uniqueness_of :first_name, :scope => :last_name
+  validates_uniqueness_of :email, :case_sensitive => false
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
 end

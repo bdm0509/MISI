@@ -1,0 +1,20 @@
+<div class="ui-corner-all sign_in">
+  <h2 class="ui-widget-header ui-corner-top">Change your password</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => 'align' }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+      
+      <fieldset class="align">
+        <%= f.label :password, 'New password', :class => 'align' %>: <%= f.password_field :password, :class => 'align' %><br />
+        <%= f.label :password_confirmation, 'Confirm new password', :class => 'align' %>: <%= f.password_field :password_confirmation, :class => 'align' %><br />
+      </fieldset>
+      <fieldset class="align form_controls">
+        <%= f.submit "Change my password", :class => 'sign_in_button' %><br />
+        <div class="sign_in_help_links">
+          <%= render :partial => "devise/shared/links" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+paid:
+  type_string: PAID
+  description: Paid
+  
+delinquent:
+  type_string: DELINQUENT
+  description: Delinquent
+  
+see_below:
+  type_string: SEE_BELOW
+  description: See Below
+  
+balance_due:
+  type_string: BALANCE_DUE
+  description: Balance Due

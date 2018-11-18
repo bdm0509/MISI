@@ -1,8 +1,26 @@
+<<<<<<< HEAD
 <%= form_for(@fee_collection_type, :html => { :class => "align validate_me" } ) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 	
   <fieldset class="align">
     <%= f.label :description, :class => "align required" %>: <%= f.text_field :description, :class => "align required", :size => 40 %><br />
+=======
+<% if @fee_collection_type.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@fee_collection_type.errors.count, "error") %> 
+        prohibited this Fee Collection Type from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @fee_collection_type.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for(@fee_collection_type, :html => { :class => "align validate_me" } ) do |f| %>
+  <fieldset class="align">
+    <%= f.label :description, :class => "align" %>: <%= f.text_field :description, :class => "align required", :size => 20 %><br />
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   </fieldset>
   <fieldset class="align form_controls">
     <input type="reset" name="Reset Values" />

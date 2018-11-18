@@ -1,5 +1,9 @@
 <tr id="fee_collection_type-<%= fee_collection_type.id %>">
   <td class="fee_collection_type_description center"><%= link_to fee_collection_type.description , fee_collection_type_path(fee_collection_type) %></td>
   <td class="fee_collection_type_type_string center"><%= fee_collection_type.type_string %></td>
+<<<<<<< HEAD
   <td class="fee_collection_type_controls center"><%= link_to "Delete", fee_collection_type, method: :delete, data: { confirm: "Are you sure you want to delete this fee collection type?" }, class: "button delete" %></td>
+=======
+  <td class="fee_collection_type_controls center"><%= link_to "Delete", fee_collection_type, :method => :delete, :confirm => "Are you sure?", :class => "button delete" %></td>
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
 </tr>
