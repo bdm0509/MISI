@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
@@ -31,43 +30,3 @@
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
-=======
-<head>
-  <title>MISI | <%= @title %></title>
-  <%= csrf_meta_tag %>
-  <%= render 'layouts/stylesheets' %>
-  <%= render 'layouts/javascripts' %>
-  <%= yield :head %>
-</head>
-
-<body>
-  <%= render 'layouts/header' %>
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>">
-        <% if value.kind_of?(Array)  %>
-          <% value.each do |val| %>
-            <%= val %><br />
-          <% end %>
-        <% else %>
-          <%= value %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div id="content">
-      <%= yield %>
-    </div> <!-- #content -->
-  <%= render 'layouts/footer' %>
-  
-  <div id="information-dialog" title="MISI Notification">
-    <p id="information_message"></p>
-  </div>
-  
-  <div id="error-dialog" title="MISI Error">
-    <p id="error_message"></p>
-  </div>
-  
-  <%= yield :javascript %>
-</body>
-</html>
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827

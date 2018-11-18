@@ -1,6 +1,5 @@
 # SQLite version 3.x
 #   gem install sqlite3
-<<<<<<< HEAD
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
@@ -13,49 +12,10 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-=======
-#development:
-#  adapter: sqlite3
-#  database: db/development.sqlite3
-#  pool: 5
-#  timeout: 5000
-development:
-  adapter: postgresql
-  host: localhost
-  database: misi_development
-  username: postgres
-  password: postgres
-  port: 5432
-
-old_development:
-  adapter: mysql2
-  database: misi_development
-  username: root
-  password: root
-  port: 3306
-  
-engine_yard:
-  adapter:   mysql2
-  database:  misi
-  username:  deploy
-  password:  AKfV1rPOYb
-  host:      ec2-23-21-154-215.compute-1.amazonaws.com
-  reconnect: true
-  pool: 200
-  
-engine_yard_tunnel:
-  adapter:   mysql2
-  database:  MISI
-  username:  deploy
-  password:  nDjt1OlYRa
-  host:      localhost
-  port:      3307
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-<<<<<<< HEAD
 test:
   <<: *default
   database: db/test.sqlite3
@@ -63,22 +23,3 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
-=======
-test: &test
-  adapter: mysql2
-  database: misi_test
-  username: root
-  password: root
-  port: 8889
-
-production:
-  adapter: mysql2
-  database: bmclaugh
-  username: bmclaugh
-  password: db-1p0j0rdw
-  host: dc1-mysql-01.kattare.com
-  port: 3306
-
-cucumber:
-  <<: *test
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827

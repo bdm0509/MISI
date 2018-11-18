@@ -1,18 +1,10 @@
 <% if maintenance_orders.size > 0 %>
-<<<<<<< HEAD
 <table id="maintenance_orders_table" class="display datatable"
        data-source="<%= maintenance_orders_url(format: :json, :show_archived => @showing_archived) %>">
-=======
-<table id="maintenance_orders_table" class="display">
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   <thead>
     <tr><th>Report Date</th><th>Order Date</th><th>GF #</th><th>Assured</td><th>Seller</th><th>Address</th><th>&nbsp;</th></tr>
   </thead>
   <tbody>
-<<<<<<< HEAD
-=======
-    <%= render :partial => 'maintenance_orders/maintenance_order', :collection => maintenance_orders %>
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   </tbody>
 </table>
 <% else %>

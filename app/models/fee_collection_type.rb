@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 class FeeCollectionType < ApplicationRecord
-=======
-class FeeCollectionType < ActiveRecord::Base
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   validates :type_string, :description, :presence => true
   before_validation :set_type_string
   has_many :maintenance_fund_fees
@@ -26,11 +22,7 @@ private
   def set_type_string
     description = read_attribute(:description)
     unless description.nil?
-<<<<<<< HEAD
       write_attribute(:type_string, description.gsub(/\s+/, "_").upcase)
-=======
-      write_attribute(:type_string, description.gsub(/\s+/, "").upcase)
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
     end
   end
 end

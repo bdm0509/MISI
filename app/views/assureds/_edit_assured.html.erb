@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%= form_for(@assured, :html => { :class => "align validate_me" } ) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 	
@@ -18,34 +17,6 @@
   </fieldset>
   <fieldset class="align">
     <%= f.label :fee, :class => "align required" %>: $<%= f.text_field :fee, :class => "align required number", :size => 50 %><br />
-=======
-<% if @assured.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@assured.errors.count, "error") %> 
-        prohibited this Assured from being saved:</h2>
-    <p>There were problems with the following fields:</p>
-    <ul>
-    <% @assured.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_for(@assured, :html => { :class => "align validate_me" } ) do |f| %>
-  <fieldset class="align">
-    <%= f.label :title, :class => "align" %>: <%= f.text_field :title, :class => "align required", :size => 50 %><br />
-    <%= f.label :street, :class => "align" %>: <%= f.text_field :street, :class => "align required", :size => 50 %><br />
-    <%= f.label :city, :class => "align" %>: <%= f.text_field :city, :class => "align required", :size => 50 %><br />
-    <%= f.label :state, :class => "align select" %>: <%= state_select("assured", "state", 'US', { :selected => @assured.state }, { :class => "align" }) %><br />
-    <%= f.label :zip, :class => "align" %>: <%= f.text_field :zip, :class => "align required", :size => 50 %>
-  </fieldset>
-  <fieldset class="align">
-    <%= f.label :contact, :class => "align" %>: <%= f.text_field :contact, :class => "align required", :size => 50 %><br />
-    <%= f.label :phone, :class => "align" %>: <%= f.text_field :phone, :class => "align required", :size => 50 %>
-  </fieldset>
-  <fieldset class="align">
-    <%= f.label :fee, :class => "align" %>: $<%= f.text_field :fee, :class => "align required number", :size => 50 %><br />
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   </fieldset>
   <fieldset class="align form_controls">
     <input type="reset" name="Reset Values" />
