@@ -12,11 +12,7 @@
     $<input type="text" id="maintenance_fund_fee_amount" name="maintenance_fund_fee_amount" class="align" size="8" /><br />
     <label for="maintenance_fund_fee_collected" class="popup-align">Collected</label>:
     &nbsp;<%= collection_select(:maintenance_fund_fee, :fee_collection_type_id, FeeCollectionType.all, :id, :description, 
-<<<<<<< HEAD
               options = { :prompt => true }, :class => "align select" ) %>
-=======
-              options = { :prompt => true }, :class => "align" ) %>
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
     <input type="hidden" id="maintenance_fund_id" name="maintenance_fund_id" value="<%= @maintenance_fund.id %>" />
     <input type="hidden" id="maintenance_fund_fee_id" name="maintenance_fund_fee_id" />
     <input type="hidden" id="maintenance_fund_fee_year" name="maintenance_fund_fee_id" />

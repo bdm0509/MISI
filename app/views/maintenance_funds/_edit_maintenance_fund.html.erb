@@ -1,32 +1,12 @@
-<<<<<<< HEAD
 <%= form_for(@maintenance_fund, :html => { :class => "align validate_me", :id => "maintenance_fund_form" } ) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-=======
-<% if @maintenance_fund.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@maintenance_fund.errors.count, "error") %> 
-        prohibited this HOA from being saved:</h2>
-    <p>There were problems with the following fields:</p>
-    <ul>
-    <% @maintenance_fund.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_for(@maintenance_fund, :html => { :class => "align validate_me", :id => "maintenance_fund_form" } ) do |f| %>
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
   <fieldset class="align">
     <%= f.label :name, :class => "align" %>: <%= f.text_field :name, :class => "align required", :size => 50 %><br />
     <%= f.label :collector, :class => "align" %>: <%= f.text_field :collector, :class => "align", :size => 50 %><br />
     <%= f.label :street, :class => "align" %>: <%= f.text_field :street, :class => "align", :size => 50 %><br />
     <%= f.label :city, :class => "align" %>: <%= f.text_field :city, :class => "align", :size => 50 %><br />
-<<<<<<< HEAD
     <%= f.label :state, :class => "align select" %>: <%= f.select :state, options_for_select(ApplicationHelper::US_STATES,  @maintenance_fund.state), class: "align select" %><br />
-=======
-    <%= f.label :state, :class => "align" %>: <%= state_select("maintenance_fund", "state", 'US', { :selected => @maintenance_fund.state }, { :class => "align" }) %><br />
->>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
     <%= f.label :zip, :class => "align" %>: <%= f.text_field :zip, :class => "align", :size => 50 %>
   </fieldset>
   <fieldset class="align">
