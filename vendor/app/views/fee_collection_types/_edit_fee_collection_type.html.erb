@@ -1,0 +1,21 @@
+<% if @fee_collection_type.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@fee_collection_type.errors.count, "error") %> 
+        prohibited this Fee Collection Type from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @fee_collection_type.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for(@fee_collection_type, :html => { :class => "align validate_me" } ) do |f| %>
+  <fieldset class="align">
+    <%= f.label :description, :class => "align" %>: <%= f.text_field :description, :class => "align required", :size => 20 %><br />
+  </fieldset>
+  <fieldset class="align form_controls">
+    <input type="reset" name="Reset Values" />
+    <%= f.submit %>
+  </fieldset>
+<% end %>

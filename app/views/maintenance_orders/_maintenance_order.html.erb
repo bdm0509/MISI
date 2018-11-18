@@ -5,5 +5,9 @@
   <td class="maintenance_order_assured_title"><%= maintenance_order.assured.title %></td>
   <td class="maintenance_order_seller center"><%= maintenance_order.seller %></td>
   <td class="maintenance_order_property_address center"><%= maintenance_order.property_address %></td>
+<<<<<<< HEAD
   <td class="maintenance_order_controls"><%= link_to "Delete", maintenance_order, method: :delete, data: { confirm: "Are you sure you want to delete this maintenance order?" }, class: "button delete" %></td>
+=======
+  <td class="maintenance_order_controls"><%= link_to "Delete", maintenance_order, :method => :delete, :confirm => "Are you sure?", :class => "button delete" %></td>
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827
 </tr>

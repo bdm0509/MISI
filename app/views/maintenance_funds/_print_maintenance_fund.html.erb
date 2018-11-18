@@ -1,0 +1,20 @@
+<div id="maintenance_fund-<%= print_maintenance_fund.id %>">
+  <p>
+    <b>Name:</b> <%= print_maintenance_fund.name %><br />
+    <b>Collector:</b> <%= print_maintenance_fund.collector %><br />
+    <b>Address:</b> <%= print_maintenance_fund.street %><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= print_maintenance_fund.city %>, <%= print_maintenance_fund.state %>, <%= print_maintenance_fund.zip %><br />
+    <b>Phone:</b> <%= print_maintenance_fund.phone %><br />
+    <% unless print_maintenance_fund.contact.nil? or hide_additional_contact_info %>
+      <b>Additional Contact Information:</b> <%= print_maintenance_fund.contact %><br />
+    <% end %>
+    <% unless print_maintenance_fund.instructions.nil? %>
+      <b>Special Instructions:</b> <%= print_maintenance_fund.instructions %><br />
+    <% end %>
+    <% unless print_maintenance_fund.amenities.nil? %>
+      <b>Additional Information:</b> <%= print_maintenance_fund.amenities %><br />
+    <% end %>
+  </p>
+</div>
+<hr width="95%" />

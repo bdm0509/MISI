@@ -1,0 +1,86 @@
+<% if @maintenance_order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@maintenance_order.errors.count, "error") %> 
+        prohibited this maintenance order from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @maintenance_order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@maintenance_order, :html => { :class => "align validate_me" } ) do |f| %>
+  <fieldset class="align">
+    <%= f.label :report_date, "Report Date", :class => "align" %>: <input class="align required datepicker" id="maintenance_order_report_date" name="maintenance_order[report_date]" size="10" type="text" value="<%= maintenance_order_type == "new" ? Time.now.strftime("%m/%d/%Y") : @maintenance_order.report_date.strftime("%m/%d/%Y") %>" /><br />
+    <%= f.label :order_date, "Order Date", :class => "align" %>: <input class="align required datepicker" id="maintenance_order_order_date" name="maintenance_order[order_date]" size="10" type="text" value="<%= maintenance_order_type == "new" ? Time.now.strftime("%m/%d/%Y") : @maintenance_order.order_date.strftime("%m/%d/%Y") %>" /><br />
+    <%= f.label :gf, "GF", :class => "align" %>: <%= f.text_field :gf, :class => "align required", :size => 10 %><br />
+  </fieldset>
+    
+  <!-- Assured information -->
+  <fieldset class="align">
+    <legend>Assured</legend>
+    <%= f.label :assured_id, :class => "align select" %>:
+    &nbsp;<%= collection_select(:maintenance_order, :assured_id, Assured.order('title ASC'), :id, :title, options = { :prompt => true }, :class => "align required" ) %><br />
+    <label for="assured_fee" class="align">Fee</label>: $<input id="assured_fee" class="align" type="text" size="6" disabled="disabled" readonly="readonly" />
+  </fieldset>
+  
+  <!-- Property information -->
+  <fieldset class="align">
+    <%= f.label :legal_description, "Legal Description:", :class => "align" %> <%= f.text_area :legal_description, :class => "align", :rows => 5, :cols => 50 %><br />
+    <%= f.label :buyer, :class => "align" %>: <%= f.text_field :buyer, :class => "align", :size => 50 %><br />
+    <%= f.label :seller, :class => "align" %>: <%= f.text_field :seller, :class => "align", :size => 50 %><br />
+    <%= f.label :property_address, "Property Address:", :class => "align" %> <%= f.text_area :property_address, :class => "align", :rows => 5, :cols => 50 %>
+  </fieldset>
+  
+  <!-- HOA information -->
+  <fieldset class="align">
+    <legend>HOA</legend>
+    <%= f.label :maintenance_fund_id, :class => "align select" %>:<br />
+    <%= collection_select(:maintenance_order, :maintenance_fund_id, MaintenanceFund.order('name ASC'), :id, :name, options = { :prompt => true }, :class => "align required right" ) %><br />
+    <%= f.label :order_status, "Order Status", :class => "align" %>: <%= f.text_field :order_status, :class => "align", :size => 12 %><br />
+    <%= f.label :delinquent, "Delinquent(s):", :class => "align" %> <%= f.text_area :delinquent, :class => "align", :rows => 5, :cols => 50 %><br />
+    <%= f.label :hoa_fee, "Fee", :class => "align" %>: <%= f.text_field :hoa_fee, :class => "align", :size => 12 %><br />
+    <%= f.label :hoa_fee_year, "Year", :class => "align" %>: <%= f.text_field :hoa_fee_year, :class => "align", :size => 8 %><br />
+    <%= f.label :hoa_collector, "Collector", :class => "align" %>: <%= f.text_field :hoa_collector, :class => "align", :size => 50 %><br />
+    <%= f.label :hoa_street, "Street", :class => "align" %>: <%= f.text_field :hoa_street, :class => "align", :size => 50 %><br />
+    <%= f.label :hoa_city, "City", :class => "align" %>: <%= f.text_field :hoa_city, :class => "align", :size => 20 %><br />
+    <%= f.label :hoa_state, "State", :class => "align" %>: <%= f.text_field :hoa_state, :class => "align", :size => 20 %><br />
+    <%= f.label :hoa_zip, "Zip Code", :class => "align" %>: <%= f.text_field :hoa_zip, :class => "align", :size => 10 %><br />
+    <%= f.label :hoa_phone, "Phone", :class => "align" %>: <%= f.text_field :hoa_phone, :class => "align", :size => 20 %><br />
+  </fieldset>
+  
+  <fieldset class="align">
+    <%= f.label :special_instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :special_instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %>
+    <%= f.label :amenities, "Additional Information:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
+  </fieldset>
+  
+  <fieldset class="align">
+    <p>Maintenance Information Services, Inc., accepts the responsibility for the information included
+      above with the exception of the following:<br />
+      <ol>
+        <li>Changes to the association bookkeeping records or closing requirements.</li>
+        <li>Supplemental or retroactive billings by the association or its representatives subsequent to the date of our report.</li>
+      </ol>
+    </p>
+  </fieldset>
+  
+  <fieldset class="align form_controls">
+    <input type="reset" name="Reset Values" />
+    <%= f.submit %>
+    <% unless maintenance_order_type == "new" %>
+      <%= link_to "Print Order", "javascript:print_maintenance_order();", :id => "print_maintenance_order" %>
+    <% end %>
+  </fieldset>
+<% end %>
+
+<% content_for :head do %>
+<script type="text/javascript">
+  // Fire off the change events to populate the form with assured and HOA data
+  $(function() {
+    $('#print_maintenance_order').button();
+    $("#maintenance_order_assured_id").change();
+  });
+</script>
+<% end %>

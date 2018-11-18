@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MISI | <%= @title %></title>
+  <%= render 'layouts/stylesheets' %>
+</head>
+
+<body>
+  <%= render 'layouts/header' %>
+    <div id="content">
+      <%= yield %>
+    </div> <!-- #content -->
+  <%= render 'layouts/footer' %>
+</body>
+</html>

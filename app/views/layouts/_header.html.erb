@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <header>
     <div id="header_logo">
       <a href="/"><%= image_tag 'misi_logo.png' %></a>
@@ -18,3 +19,55 @@
       </p>
     </div>
   </header>
+=======
+<div id="header">
+  <div id="header_logo">
+    <a href="/"><img src="/images/misi_logo.png"></a>
+  </div>
+  <div id="header_name">
+    <a href="/"><img src="/images/misi_title.png"></a>
+  </div>
+  <div id="header_contact">
+    <p>
+      <% if @printing %>
+      MISI - Maintenance Information Services, Inc.
+      <% end %>
+      9301 Southwest Freeway<br />
+      Suite 455<br />
+      Houston, Texas&nbsp;&nbsp;77074<br />
+      Phone: (713) 270-5660<br />
+      Fax: (713) 270-7133<br />
+    </p>
+  </div>
+</div>
+
+<% unless @printing %>
+  <div id="navigation">
+    <ul id="navigation_menu" class="sf-menu sf-vertical">
+     <% if user_signed_in? %> 
+        <li><%= link_to "Maintenance Orders", maintenance_orders_path %></li>
+        <li><%= link_to "HOAs", maintenance_funds_path %></li>
+        <li><%= link_to "Assureds", assureds_path %></li>
+
+        <% if current_user.try(:admin?) %>
+          <li><%= link_to "Administration", "/admin" %>
+            <ul>
+              <li><%= link_to "Fee Collection Types", fee_collection_types_path %></li>
+              <li><%= link_to "Add User", new_user_path %></li>
+              <li><%= link_to "Edit Home Page Text", '/home_page/show' %></li>
+            </ul>
+          </li>
+        <% end %>
+          
+        <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+        <li><%= link_to "Change Password", edit_password_user_path(current_user) %></li>
+        <li><%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %></li>
+      <% else %>
+        <li><%= link_to('Sign In', new_user_session_path) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div id="page">
+>>>>>>> 528a84ac36f9ee8ae5ac92ad60e3b15c99db9827

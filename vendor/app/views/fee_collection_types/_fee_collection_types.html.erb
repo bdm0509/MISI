@@ -1,0 +1,12 @@
+<% if fee_collection_types.size > 0 %>
+<table id="fee_collection_types_table" class="display">
+  <thead>
+    <tr><th>Description</th><th>Type Code</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'fee_collection_types/fee_collection_type', :collection => fee_collection_types %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no Fee Collection Types to display.</p>
+<% end %>

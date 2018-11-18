@@ -1,0 +1,11 @@
+development:
+  allow_user_signup: true
+  home_page_text_key: HOME_PAGE_TEXT
+  
+test:
+  allow_user_signup: true
+  home_page_text_key: HOME_PAGE_TEXT
+  
+production:
+  allow_user_signup: true
+  home_page_text_key: HOME_PAGE_TEXT
