@@ -61,7 +61,7 @@
     <input type="reset" name="Reset Values" />
     <%= f.submit %>
     <% unless maintenance_order_type == "new" %>
-      <%= link_to "Print Order", "javascript:print_maintenance_order();", :id => "print_maintenance_order" %>
+      <%= link_to "Print Order", "javascript:print_maintenance_order('#{print_maintenance_order_path}');", :id => "print_maintenance_order", data: {turbolinks: false} %>
     <% end %>
   </fieldset>
 <% end %>

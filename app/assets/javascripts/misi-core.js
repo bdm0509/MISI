@@ -212,6 +212,23 @@ function highlight_maintenance_order(maintenance_order_id) {
   $("tr#maintenance_order-" + maintenance_order_id).effect("highlight", {}, 3000);
 }
 
+function print_maintenance_order(print_path) {
+  var theForm = $("#maintenance_order").find("form:first");
+  var valuesToSubmit = theForm.serialize();
+  
+  theForm.target = '_print';
+  theForm.attr('action', print_path);
+  theForm.submit();
+  
+  alert("Your order is now downloading. Check your downloads folder to see the file.");
+  
+  //$.ajax({
+  //  url: print_path,
+  //  data: valuesToSubmit,
+  //  type: "POST"
+  // });
+}
+
 ///////////////////////////////////////////////////////////////
 // 
 // Maintenance Fund functionality and support JavaScript

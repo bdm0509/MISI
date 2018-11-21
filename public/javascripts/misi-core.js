@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  alert("Got this");
+  
   init_message_dialogs();
 	init_jquery_ui_controls();
 	init_navigation_menu();
@@ -360,11 +362,13 @@ function highlight_maintenance_order(maintenance_order_id) {
   $("tr#maintenance_order-" + maintenance_order_id).effect("highlight", {}, 3000);
 }
 
-function print_maintenance_order() {
+function print_maintenance_order(print_path) {
+  alert("Here with path of '" + print_path + "'!");
+  
   var theForm = $("#maintenance_order").find("form:first");
   var valuesToSubmit = theForm.serialize();
   $.ajax({
-    url: theForm.attr("action"),
+    url: print_path,
     data: valuesToSubmit,
     type: "POST"
   });

@@ -14,7 +14,7 @@ gem 'jquery-ui-rails','5.0.5'
 gem 'bootstrap-sass', '3.3.7'
 gem 'turbolinks',     '5.0.1'
 gem 'jbuilder',       '2.7.0'
-gem 'pdfcrowd'
+gem 'pdfcrowd',       '4.3.5'
 
 gem 'bulma-rails',              '~> 0.7.1'
 gem 'font-awesome-rails',       '~> 4.7'

@@ -1,4 +1,5 @@
 class MaintenanceOrdersController < ApplicationController
+  require 'pdfcrowd'
 
   def new
     @title = "Create New Maintenance Order"
@@ -65,6 +66,46 @@ class MaintenanceOrdersController < ApplicationController
     end
     
     redirect_to :controller => 'maintenance_orders', :action => 'index'
+  end
+  
+  def print
+    puts "PRINTING REQUESTED"
+    
+    begin
+      # client = Pdfcrowd::Client.new("misi", "afec1b458239c068061334c4fe8f93a6")
+      client = Pdfcrowd::HtmlToPdfClient.new("misi", "afec1b458239c068061334c4fe8f93a6")
+#      client.setHorizontalMargin("0.25in")
+#      client.setVerticalMargin("0.5in")
+#    client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>#{Time.now.strftime("%m/%d/%Y")}</p></div>")
+#      client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page %p of %n</p></div>")
+      
+      @maintenance_order = MaintenanceOrder.find(params[:id])
+      @title = "Maintenance Order (#{@maintenance_order.order_date})"
+      @printing = true
+      @maintenance_fund_fee = @maintenance_order.maintenance_fund.maintenance_fund_fees.order('year DESC').first
+      
+      order_listing = render_to_string(
+        :partial => "maintenance_orders/print",
+        :locals => { 
+          :maintenance_order => @maintenance_order,
+          :title => @title
+        }
+      )
+      
+      output_file = open("tmp/misi_maint_order-#{@maintenance_order.id}.pdf", "wb") 
+      pdf = client.convertString(order_listing)
+      output_file.write(pdf)
+      output_file.close()
+
+      # send the generated PDF
+      puts "IN FORMAT"
+          
+      send_data pdf, filename: "misi_maint_order-#{@maintenance_order.id}.pdf", type: :pdf, :disposition => "attachment"
+    rescue Pdfcrowd::Error => why
+      puts why
+      puts "Got here"
+      render :text => why
+    end
   end
   
 private

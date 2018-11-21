@@ -14,7 +14,14 @@ Rails.application.routes.draw do
   resources               :assureds
   resources               :fee_collection_types
   resources               :maintenance_funds
-  resources               :maintenance_orders
+  resources               :maintenance_orders do
+    member do
+      patch 'print'
+    end
+    collection do
+      get  'update_special_characters'
+    end
+  end
   
   resources :maintenance_fund_fees do
     member do
