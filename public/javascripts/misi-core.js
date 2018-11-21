@@ -1,6 +1,9 @@
 $(document).ready(function() {
+<<<<<<< HEAD
   alert("Got this");
   
+=======
+>>>>>>> 0a6518f75db5a01ee2fd1d1f53ace476ecd88389
   init_message_dialogs();
 	init_jquery_ui_controls();
 	init_navigation_menu();
@@ -362,6 +365,7 @@ function highlight_maintenance_order(maintenance_order_id) {
   $("tr#maintenance_order-" + maintenance_order_id).effect("highlight", {}, 3000);
 }
 
+<<<<<<< HEAD
 function print_maintenance_order(print_path) {
   alert("Here with path of '" + print_path + "'!");
   
@@ -369,6 +373,13 @@ function print_maintenance_order(print_path) {
   var valuesToSubmit = theForm.serialize();
   $.ajax({
     url: print_path,
+=======
+function print_maintenance_order() {
+  var theForm = $("#maintenance_order").find("form:first");
+  var valuesToSubmit = theForm.serialize();
+  $.ajax({
+    url: theForm.attr("action"),
+>>>>>>> 0a6518f75db5a01ee2fd1d1f53ace476ecd88389
     data: valuesToSubmit,
     type: "POST"
   });
