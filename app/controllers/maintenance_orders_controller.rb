@@ -92,18 +92,11 @@ class MaintenanceOrdersController < ApplicationController
         }
       )
       
-      output_file = open("tmp/misi_maint_order-#{@maintenance_order.id}.pdf", "wb") 
       pdf = client.convertString(order_listing)
-      output_file.write(pdf)
-      output_file.close()
 
       # send the generated PDF
-      puts "IN FORMAT"
-          
       send_data pdf, filename: "misi_maint_order-#{@maintenance_order.id}.pdf", type: :pdf, :disposition => "attachment"
     rescue Pdfcrowd::Error => why
-      puts why
-      puts "Got here"
       render :text => why
     end
   end
