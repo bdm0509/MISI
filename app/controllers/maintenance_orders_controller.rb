@@ -74,10 +74,12 @@ class MaintenanceOrdersController < ApplicationController
     begin
       # client = Pdfcrowd::Client.new("misi", "afec1b458239c068061334c4fe8f93a6")
       client = Pdfcrowd::HtmlToPdfClient.new("misi", "afec1b458239c068061334c4fe8f93a6")
-#      client.setHorizontalMargin("0.25in")
-#      client.setVerticalMargin("0.5in")
-#    client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>#{Time.now.strftime("%m/%d/%Y")}</p></div>")
-#      client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page %p of %n</p></div>")
+      client.setMarginTop("0.5in")
+      client.setMarginBottom("0.5in")
+      client.setMarginLeft("0.25in")
+      client.setMarginRight("0.25in")
+      client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>MISI Maintenance Order Listing - #{Time.now.strftime("%m/%d/%Y")}</p></div>")
+      client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page <span class='pdfcrowd-page-number'></span> of <span class='pdfcrowd-page-count'></span></p></div>")
       
       @maintenance_order = MaintenanceOrder.find(params[:id])
       @title = "Maintenance Order (#{@maintenance_order.order_date})"

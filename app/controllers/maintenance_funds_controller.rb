@@ -15,18 +15,19 @@ class MaintenanceFundsController < ApplicationController
   def print
     begin
       # create an API client instance
-      client = Pdfcrowd::Client.new("misi", "afec1b458239c068061334c4fe8f93a6")
-      client.setHorizontalMargin("0.25in")
-      client.setVerticalMargin("0.5in")
-      client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>MISI HOA Listings - #{Time.now.strftime("%m/%d/%Y")}</p></div>")
-      client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page %p of %n</p></div>")
+      # client = Pdfcrowd::Client.new("misi", "afec1b458239c068061334c4fe8f93a6")
+      client = Pdfcrowd::HtmlToPdfClient.new("misi", "afec1b458239c068061334c4fe8f93a6")
+      client.setMarginTop("0.5in")
+      client.setMarginBottom("0.5in")
+      client.setMarginLeft("0.25in")
+      client.setMarginRight("0.25in")
       
-      @maintenance_funds = MaintenanceFund.find(:all, :order => "name asc", :limit => 15)
+      client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>MISI HOA Listings - #{Time.now.strftime("%m/%d/%Y")}</p></div>")
+      client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page <span class='pdfcrowd-page-number'></span> of <span class='pdfcrowd-page-count'></span></p></div>")
+      
+      @maintenance_funds = MaintenanceFund.order(:name).limit(15)
       @show_additional_contact_information = params[:show_additional_contact_information].blank? ? false : 
                                                params[:show_additional_contact_information] == "true" ? true : false
-                                               
-      puts "It's true!" if @show_additional_contact_information
-      puts "It's false!" if !@show_additional_contact_information
       
       @printing = true
       
@@ -39,7 +40,7 @@ class MaintenanceFundsController < ApplicationController
       )
 
       # convert a web page and store the generated PDF to a variable
-      pdf = client.convertHtml(hoa_listing)
+      pdf = client.convertString(hoa_listing)
 
       # send the generated PDF
       send_data(pdf, 
