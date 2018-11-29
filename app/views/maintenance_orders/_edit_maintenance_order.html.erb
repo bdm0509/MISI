@@ -17,19 +17,19 @@
   
   <!-- Property information -->
   <fieldset class="align">
-    <%= f.label :legal_description, "Legal Description:", :class => "align" %> <%= f.text_area :legal_description, :class => "align", :rows => 5, :cols => 50 %><br />
+    <%= f.label :legal_description, "Legal Description:", :class => "align" %> <%= f.text_area :legal_description, :class => "align", :rows => 5, :cols => 48 %><br />
     <%= f.label :buyer, :class => "align" %>: <%= f.text_field :buyer, :class => "align", :size => 50 %><br />
     <%= f.label :seller, :class => "align" %>: <%= f.text_field :seller, :class => "align", :size => 50 %><br />
-    <%= f.label :property_address, "Property Address:", :class => "align" %> <%= f.text_area :property_address, :class => "align", :rows => 5, :cols => 50 %>
+    <%= f.label :property_address, "Property Address:", :class => "align" %> <%= f.text_area :property_address, :class => "align", :rows => 5, :cols => 48 %>
   </fieldset>
   
   <!-- HOA information -->
   <fieldset class="align">
     <legend>HOA</legend>
-    <%= f.label :maintenance_fund_id, :class => "align select" %>:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :maintenance_fund_id, :class => "select" %>:<br />
     <%= collection_select(:maintenance_order, :maintenance_fund_id, MaintenanceFund.order('name ASC'), :id, :name, options = { :prompt => true }, :class => "align required right" ) %><br />
     <%= f.label :order_status, "Order Status", :class => "align" %>: <%= f.text_field :order_status, :class => "align", :size => 12 %><br />
-    <%= f.label :delinquent, "Delinquent(s):", :class => "align" %> <%= f.text_area :delinquent, :class => "align", :rows => 5, :cols => 50 %><br />
+    <%= f.label :delinquent, "Delinquent(s):", :class => "align" %> <%= f.text_area :delinquent, :class => "align", :rows => 5, :cols => 48 %><br />
     <%= f.label :hoa_fee, "Fee", :class => "align" %>: <%= f.text_field :hoa_fee, :class => "align", :size => 12 %><br />
     <%= f.label :hoa_fee_year, "Year", :class => "align" %>: <%= f.text_field :hoa_fee_year, :class => "align", :size => 8 %><br />
     <%= f.label :hoa_collector, "Collector", :class => "align" %>: <%= f.text_field :hoa_collector, :class => "align", :size => 50 %><br />
@@ -43,8 +43,8 @@
   </fieldset>
   
   <fieldset class="align">
-    <%= f.label :special_instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :special_instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %>
-    <%= f.label :amenities, "Additional Information:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
+    <%= f.label :special_instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :special_instructions, :class => "align", :rows => 5, :cols => 48, :escape => false %>
+    <%= f.label :amenities, "Additional Information:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 48 %>
   </fieldset>
   
   <fieldset class="align">

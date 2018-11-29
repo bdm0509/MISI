@@ -1,5 +1,4 @@
 class HomePageTextController < ApplicationController
-  before_filter :authenticate_user!
   
   def show
     @title = 'Home Page text updater'

@@ -1,5 +1,4 @@
 class MaintenanceFundFeesController < ApplicationController
-  before_filter :authenticate_user!
   
   def create
     @maintenance_fund_fee = update_maintenance_fund_fee(nil, 

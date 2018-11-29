@@ -16,8 +16,10 @@
     <%= f.label :email, "E-Mail", :class => "align" %>: <%= f.text_field :email, :class => "align", :size => 50 %>
   </fieldset>
   <fieldset class="align">
-    <%= f.label :instructions, "Special Instructions:", :class => "align" %> <%= f.text_area :instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %>
-    <%= f.label :amenities, "Additional Information:", :class => "align" %> <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
+    <%= f.label :instructions, "Special Instructions:" %><br /> 
+    <%= f.text_area :instructions, :class => "align", :rows => 5, :cols => 50, :escape => false %><br /><br />
+    <%= f.label :amenities, "Additional Information:" %> <br />
+    <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
   </fieldset>
   <fieldset class="align center">
     <%= link_to "Add New Fee", "javascript:add_maintenance_fund_fee();", :id => "create_new_maintenance_fund_fee", :class => "create_new_button" %>

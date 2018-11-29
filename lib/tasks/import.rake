@@ -1,6 +1,25 @@
 namespace :import do
   require 'csv'
   
+  desc "Clear everything that is imported out"
+  task :clear_all => :environment do
+    MaintenanceFundFee.delete_all
+    MaintenanceOrder.delete_all
+    MaintenanceFund.delete_all
+    Assured.delete_all
+    FeeCollectionType.delete_all
+  end
+  
+  desc "Import all database files from dumps"
+  task :all => [:clear_all, :environment] do    
+    # Start importing
+    Rake::Task["import:fee_collection_types"].invoke
+    Rake::Task["import:assureds"].invoke
+    Rake::Task["import:maintenance_funds"].invoke
+    Rake::Task["import:maintenance_orders"].invoke
+    Rake::Task["import:maintenance_fund_fees"].invoke
+  end
+  
   desc "Import Assureds from a CSV file"
   task :assureds => :environment do
     
@@ -96,6 +115,11 @@ namespace :import do
       assured_id = data['assured_id'].to_i
       if assured_id > 0
         order.assured = Assured.find(assured_id)
+      end
+      
+      maintenance_fund_id = data['maintenance_fund_id'].to_i
+      if maintenance_fund_id > 0
+        order.maintenance_fund = MaintenanceFund.find(maintenance_fund_id)
       end
                             
       order.save(validate: false)

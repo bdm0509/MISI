@@ -2,6 +2,12 @@ var ready = function() {
 	init_navigation_menu();
 	init_jquery_ui_controls();
   init_sitewide_bindings();
+  
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 };
 
 $(document).ready(ready);
@@ -333,8 +339,25 @@ function maintenance_fund_fees_init_page(num_maintenance_fund_fees) {
   });
   
   $('#create_new_maintenance_fund_fee').button();
-  // maintenance_fund_fees_table_init(num_maintenance_fund_fees);
 
+  maintenance_fund_fees_table_init(num_maintenance_fund_fees);
+}
+
+function maintenance_fund_fees_table_init(num_maintenance_fund_fees) {
+  if (num_maintenance_fund_fees > 0) { 
+    $('#maintenance_fund_fees_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "iDisplayLength": 25,
+      "aLengthMenu":    [[25, 50, 100, -1], [25, 50, 100, "All"]],
+      "aoColumns": [
+        { "sWidth": "75px" },
+        { "sWidth": "300px" },
+        { "sWidth": "200px" },
+      ]
+			
+    });
+  }
 }
 
 function check_for_empty_data() {
