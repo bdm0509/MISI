@@ -56,9 +56,11 @@ class MaintenanceOrdersController < ApplicationController
   def update
     @maintenance_order = MaintenanceOrder.find(params[:id])
     if @maintenance_order.update_attributes(maintenance_order_params)
+      puts "HERE HERE HERE"
       flash[:success] = "The maintenance order #{@maintenance_order.order_date} has been updated."
       redirect_to @maintenance_order
     else
+      puts "FAILED FAILED FAILED"
       @title = "Maintenance Order (#{@maintenance_order.order_date})"
       render 'show'
     end
