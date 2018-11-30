@@ -61,6 +61,7 @@ class MaintenanceOrdersController < ApplicationController
       redirect_to @maintenance_order
     else
       puts "FAILED FAILED FAILED"
+      puts @maintenance_order.errors.messages.inspect
       @title = "Maintenance Order (#{@maintenance_order.order_date})"
       render 'show'
     end
