@@ -51,10 +51,13 @@ private
       maintenance_orders.paginate(:page => page,
                                   :per_page => per_page)
     if params[:sSearch].present?
+      
+      puts params[:sSearch]
+      
       maintenance_orders = 
       # FIX ME ADD ASSURED TITLE
         maintenance_orders.where("lower(gf) like :search or lower(seller) like :search or lower(property_address) like :search", 
-          search: "%#{params[:sSearch].gsub!('/', '-')}%".downcase)
+          search: "%#{params[:sSearch].gsub('/', '-')}%".downcase)
     end
     maintenance_orders
   end
