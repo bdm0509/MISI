@@ -79,7 +79,6 @@ class MaintenanceOrdersController < ApplicationController
       client.setMarginBottom("0.5in")
       client.setMarginLeft("0.25in")
       client.setMarginRight("0.25in")
-      client.setHeaderHtml("<div id='print_header' style='text-align: right'><p>MISI Maintenance Order Listing - #{Time.now.strftime("%m/%d/%Y")}</p></div>")
       client.setFooterHtml("<div id='print_footer' style='text-align: right'><p>Page <span class='pdfcrowd-page-number'></span> of <span class='pdfcrowd-page-count'></span></p></div>")
       
       @maintenance_order = MaintenanceOrder.find(params[:id])

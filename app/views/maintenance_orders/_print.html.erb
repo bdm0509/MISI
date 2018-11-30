@@ -25,7 +25,7 @@
         <b>GF:</b> <%= @maintenance_order.gf %>
       </td>
       <td>
-        <b>Report Date:</b> <%= @maintenance_order.report_date.strftime("%m/%d/%Y") %>
+        <b>Report Date:</b> <%= Date.today.strftime("%m/%d/%Y") %>
       </td>
     </tr>
     <tr>
@@ -119,10 +119,10 @@
       </td>
     </tr>
     <tr>
-      <td align="right">
-        <b>Year:</b> <%= @maintenance_order.hoa_fee_year %>
+      <td align="left">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Year:</b> <%= @maintenance_order.hoa_fee_year %>
       </td>
-      <td align="center">
+      <td align="left">
         <b>Amount:</b> <%= @maintenance_order.hoa_fee %>
       </td>
       <td>
@@ -135,7 +135,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="3" align="center"><b><u>Delinquent(s)</u></b></td>
+      <td colspan="3" align="center"><b><u>Additional Account Information</u></b></td>
     </tr>
     <tr>
       <td colspan="3">
@@ -155,9 +155,9 @@
       <b>Special Instructions:</b> <%= @maintenance_order.special_instructions %><br />
     <% end %>
     <% if @maintenance_order.amenities.nil? || @maintenance_order.amenities.blank? %>
-      <b>Additional Information:</b> <i>Call HOA for details if needed</i><br />
+      <b>Additional Association Information:</b> <i>Call HOA for details if needed</i><br />
     <% else %>
-      <b>Additional Information:</b> <%= @maintenance_order.amenities %><br />
+      <b>Additional Association Information:</b> <%= @maintenance_order.amenities %><br />
     <% end %>
   </p>
   <p style="font-size: 90%; text-align: justify;">
