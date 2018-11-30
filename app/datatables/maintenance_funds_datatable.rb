@@ -54,7 +54,7 @@ private
                                  :per_page => per_page)
     if params[:sSearch].present?
       maintenance_funds = 
-        maintenance_funds.where("name like :search or collector like :search or street like :search or city like :search or zip like :search", 
+        maintenance_funds.where("lower(name) like :search or lower(collector) like :search or lower(street) like :search or lower(city) like :search or lower(zip) like :search", 
           search: "%#{params[:sSearch]}%")
     end
     maintenance_funds
