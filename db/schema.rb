@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181118182929) do
+ActiveRecord::Schema.define(version: 20181130200259) do
 
   create_table "assureds", force: :cascade do |t|
     t.string "title"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20181118182929) do
 
   create_table "maintenance_fund_fees", force: :cascade do |t|
     t.integer "maintenance_fund_id"
-    t.integer "year"
+    t.string "year"
     t.string "amount"
     t.string "how_collected"
     t.string "other_fee_type"
