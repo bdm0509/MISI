@@ -31,7 +31,14 @@ class MaintenanceOrdersController < ApplicationController
   end
   
   def create
+    puts maintenance_order_params
+    
     @maintenance_order = MaintenanceOrder.new(maintenance_order_params)
+    
+    # Handle dates
+    @maintenance_order.report_date = Date.strptime(maintenance_order_params["report_date"], "%m/%d/%Y")
+    @maintenance_order.order_date = Date.strptime(maintenance_order_params["order_date"], "%m/%d/%Y")
+    
     if @maintenance_order.save
       flash[:success] = "The maintenance order #{@maintenance_order.order_date} has been created."
       redirect_to :controller => 'maintenance_orders', :action => 'index', :id => @maintenance_order.id
@@ -68,9 +75,7 @@ class MaintenanceOrdersController < ApplicationController
     redirect_to :controller => 'maintenance_orders', :action => 'index'
   end
   
-  def print
-    puts "PRINTING REQUESTED"
-    
+  def print    
     begin
       # client = Pdfcrowd::Client.new("misi", "afec1b458239c068061334c4fe8f93a6")
       client = Pdfcrowd::HtmlToPdfClient.new("misi", "afec1b458239c068061334c4fe8f93a6")
@@ -112,7 +117,7 @@ private
                                               :maintenance_fund_id,
                                               :order_status, :delinquent,
                                               :hoa_fee, :hoa_fee_year, :hoa_collector,
-                                              :hoa_street, :hoa_state, :hoa_zip,
+                                              :hoa_street, :hoa_city, :hoa_state, :hoa_zip,
                                               :hoa_phone, :hoa_fax, :hoa_email,
                                               :special_instructions, :amenities)
   end

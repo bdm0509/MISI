@@ -53,7 +53,7 @@ private
     if params[:sSearch].present?
       maintenance_orders = 
       # FIX ME ADD ASSURED TITLE
-        maintenance_orders.where("report_date like :search or order_date like :search or lower(gf) like :search or lower(seller) like :search or lower(property_address) like :search", 
+        maintenance_orders.where("lower(gf) like :search or lower(seller) like :search or lower(property_address) like :search", 
           search: "%#{params[:sSearch].gsub!('/', '-')}%".downcase)
     end
     maintenance_orders
