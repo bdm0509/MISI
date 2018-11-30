@@ -35,10 +35,6 @@ class MaintenanceOrdersController < ApplicationController
     
     @maintenance_order = MaintenanceOrder.new(maintenance_order_params)
     
-    # Handle dates
-    @maintenance_order.report_date = Date.strptime(maintenance_order_params["report_date"], "%m/%d/%Y")
-    @maintenance_order.order_date = Date.strptime(maintenance_order_params["order_date"], "%m/%d/%Y")
-    
     if @maintenance_order.save
       flash[:success] = "The maintenance order #{@maintenance_order.order_date} has been created."
       redirect_to :controller => 'maintenance_orders', :action => 'index', :id => @maintenance_order.id
@@ -56,12 +52,9 @@ class MaintenanceOrdersController < ApplicationController
   def update
     @maintenance_order = MaintenanceOrder.find(params[:id])
     if @maintenance_order.update_attributes(maintenance_order_params)
-      puts "HERE HERE HERE"
       flash[:success] = "The maintenance order #{@maintenance_order.order_date} has been updated."
       redirect_to @maintenance_order
     else
-      puts "FAILED FAILED FAILED"
-      puts @maintenance_order.errors.messages.inspect
       @title = "Maintenance Order (#{@maintenance_order.order_date})"
       render 'show'
     end
