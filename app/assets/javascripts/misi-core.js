@@ -351,7 +351,7 @@ function maintenance_fund_fees_table_init(num_maintenance_fund_fees) {
       "iDisplayLength": 25,
       "aLengthMenu":    [[25, 50, 100, -1], [25, 50, 100, "All"]],
       "aoColumns": [
-        { "sWidth": "75px" },
+        { "sWidth": "125px" },
         { "sWidth": "300px" },
         { "sWidth": "200px" },
       ]
