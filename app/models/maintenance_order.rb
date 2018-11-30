@@ -6,11 +6,11 @@ class MaintenanceOrder < ApplicationRecord
             :presence => true
   validates :assured, :maintenance_fund, :presence => true
   
-  before_validation :format_dates
+  def report_date= stringDate
+    write_attribute :report_date, Date.strptime(stringDate, "%m/%d/%Y")
+  end
   
-  def format_dates
-    puts "Formatting dates for validation"
-    self.report_date = Date.strptime(report_date, "%m/%d/%Y")
-    self.order_date = Date.strptime(order_date, "%m/%d/%Y")
+  def order_date= stringDate
+    write_attribute :order_date, Date.strptime(stringDate, "%m/%d/%Y")
   end
 end
