@@ -226,8 +226,6 @@ function print_maintenance_order(print_path) {
   theForm.attr('action', print_path);
   theForm.submit();
   
-  alert("Your order is now downloading. Check your downloads folder to see the file.");
-  
   //$.ajax({
   //  url: print_path,
   //  data: valuesToSubmit,
