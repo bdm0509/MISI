@@ -1,0 +1,21 @@
+<div id="tax_certificates" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Tax Certificates</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Tax Certificate", new_tax_certificate_path, :id => "create_new_tax_certificate", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'tax_certificates/tax_certificates', :object => @tax_certificates %>
+  </div>
+</div> <!-- div#tax_certificates -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    tax_certificate_init_page(<%= @tax_certificates.size %>);
+    
+    <% unless @new_tax_certificates_id.nil? %>
+      highlight_tax_certificate("<%= @new_tax_certificates_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

@@ -1,0 +1,7 @@
+<tr id="tax_certificate-<%= tax_certificate.id %>">
+  <td class="tax_certificate_gf"><%= link_to tax_certificate.gf, tax_certificate_path(tax_certificate) %></td>
+  <td class="tax_certificate_title_company"><%= tax_certificate.title_company %></td>
+  <td class="tax_certificate_order"><%= tax_certificate.order %></td>
+  <td class="tax_certificate_property_address center"><%= tax_certificate.property_address %></td>
+  <td class="tax_certificate_controls"><%= link_to "Delete", tax_certificate, method: :delete, data: { confirm: "Are you sure you want to delete this tax certificate?" }, class: "button delete" %></td>
+</tr>

@@ -1,0 +1,12 @@
+<% if tax_certificates.size > 0 %>
+<table id="tax_certificates_table" class="display datatable"
+       data-source="<%= tax_certificates_url(format: :json, :show_archived => @showing_archived) %>">
+  <thead>
+    <tr><th>GF #</th><th>Title Company</th><th>Order No.</td><th>Address</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no tax certificates to display.</p>
+<% end %>

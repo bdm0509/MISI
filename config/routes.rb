@@ -29,6 +29,15 @@ Rails.application.routes.draw do
     end
   end
   
+  resources               :tax_certificates do
+    member do
+      patch 'print'
+    end
+    collection do
+      get  'update_special_characters'
+    end
+  end
+  
   resources :maintenance_fund_fees do
     member do
       post 'update'

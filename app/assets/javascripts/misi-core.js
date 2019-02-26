@@ -235,6 +235,61 @@ function print_maintenance_order(print_path) {
 
 ///////////////////////////////////////////////////////////////
 // 
+// Tax Certificate functionality and support JavaScript
+//
+///////////////////////////////////////////////////////////////
+function tax_certificate_init_page(num_tax_certificates) {
+  $('#create_new_tax_certificate').button();
+  
+  if (num_tax_certificates > 0) {
+    $('#tax_certificates_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "iDisplayLength": 25,
+      "aLengthMenu":    [[25, 50, 100, -1], [25, 50, 100, "All"]],
+			"bProcessing":     true,
+			"bServerSide":    true,
+			"sAjaxSource":    $('#tax_certificates_table').data('source'),
+			"fnDrawCallback": function(oSettings, json) {
+			  $("a.button.delete").button({
+			    icons: { primary: "ui-icon-close" },
+			    text: false
+			  });
+			},
+      "aoColumns": [
+        { "bSearchable": true, "sWidth": "80px" },
+        { "bSearchable": true, "sWidth": "80px" },
+        { "bSearchable": true, "sWidth": "80px" },
+        { "bSearchable": true, "sWidth": "180px" },
+        { "bSearchable": true, "sWidth": "80px" },
+        { "bSearchable": true, "sWidth": "250px" },
+        { "bSearchable": false, "bSortable": false, "sWidth": "20px" }
+      ]
+    });
+  }
+}
+
+function highlight_maintenance_order(maintenance_order_id) {
+  $("tr#maintenance_order-" + maintenance_order_id).effect("highlight", {}, 3000);
+}
+
+function print_maintenance_order(print_path) {
+  var theForm = $("#maintenance_order").find("form:first");
+  var valuesToSubmit = theForm.serialize();
+  
+  theForm.target = '_print';
+  theForm.attr('action', print_path);
+  theForm.submit();
+  
+  //$.ajax({
+  //  url: print_path,
+  //  data: valuesToSubmit,
+  //  type: "POST"
+  // });
+}
+
+///////////////////////////////////////////////////////////////
+// 
 // Maintenance Fund functionality and support JavaScript
 //
 ///////////////////////////////////////////////////////////////
