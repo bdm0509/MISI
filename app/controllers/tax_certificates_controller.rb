@@ -13,8 +13,11 @@ class TaxCertificatesController < ApplicationController
     # Convert string flag to a boolean
     show_archived = params[:show_archived]
     archive_flag = show_archived == 'true' || false
-    @showing_archived = false
-    @showing_archived = true if archive_flag == true || archive_flag =~ (/(true|t|yes|y|1)$/i)
+    #@showing_archived = false
+    #@showing_archived = true if archive_flag == true || archive_flag =~ (/(true|t|yes|y|1)$/i)
+    
+    ### FIX
+    @showing_archived = true
     
     if @showing_archived
       @tax_certificates = TaxCertificate.limit(100)
@@ -25,7 +28,7 @@ class TaxCertificatesController < ApplicationController
     
     respond_to do |format|
       format.html
-      #format.json { render json: MaintenanceOrdersDatatable.new(view_context, @showing_archived) }
+      format.json { render json: TaxCertificatesDatatable.new(view_context, @showing_archived) }
     end
   end
   

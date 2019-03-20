@@ -258,8 +258,6 @@ function tax_certificate_init_page(num_tax_certificates) {
 			},
       "aoColumns": [
         { "bSearchable": true, "sWidth": "80px" },
-        { "bSearchable": true, "sWidth": "80px" },
-        { "bSearchable": true, "sWidth": "80px" },
         { "bSearchable": true, "sWidth": "180px" },
         { "bSearchable": true, "sWidth": "80px" },
         { "bSearchable": true, "sWidth": "250px" },
