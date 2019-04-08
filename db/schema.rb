@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190226214557) do
+ActiveRecord::Schema.define(version: 20190322133137) do
 
   create_table "assureds", force: :cascade do |t|
     t.string "title"
@@ -107,6 +107,12 @@ ActiveRecord::Schema.define(version: 20190226214557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "archived"
+    t.string "assessed_owner"
+    t.text "tax_description"
+    t.text "additional_information"
+    t.string "date"
+    t.string "fee"
+    t.string "cad_value"
   end
 
   create_table "text_blocks", force: :cascade do |t|

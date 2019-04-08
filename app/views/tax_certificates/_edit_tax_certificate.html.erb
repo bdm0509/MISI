@@ -6,10 +6,12 @@
     <%= f.label :certificate, "Certificate No.", :class => "align" %>: <%= f.text_field :certificate, :class => "align required", :size => 20 %><br />
     <%= f.label :gf, "GF", :class => "align" %>: <%= f.text_field :gf, :class => "align required", :size => 20 %><br />
     <%= f.label :order, "Order No.", :class => "align" %>: <%= f.text_field :order, :class => "align required", :size => 20 %><br />
+    <%= f.label :buyer, "Buyer", :class => "align" %>: <%= f.text_field :buyer, :class => "align required", :size => 20 %><br />
+    <%= f.label :property_address, "Property Address:", :class => "align" %> <%= f.text_area :property_address, :class => "align", :rows => 5, :cols => 48 %>
   </fieldset>
   
-  <fieldset class="align">
-    <p>Maintenance Information Services, Inc., guarantees the status of this report as herin stated. However, this certificate does not guarantee changes in tax amounts of tax payment status resulting from the following:<br />
+  <fieldset class="align small_text">
+    <p>Maintenance Information Services, Inc., guarantees the status of this report as herein stated. However, this certificate does not guarantee changes in tax amounts of tax payment status resulting from the following:<br />
       <ol>
         <li>Tax roll supplements/changes.</li>
         <li>Refunds or transfer of payments.</li>
@@ -19,6 +21,24 @@
       </ol>
     </p>
     <p>Further, MISI does not guarantee (but may include for information purposes) "improvements only" accounts of other "phantom and/or deleted" accounts which are NOT tied by reference utilizing the current Central Appraisal District system within the county requested. MISI has used official government records to produce this report.</p>
+  </fieldset>
+  
+  <fieldset class="align">
+    <%= f.label :assessed_owner, "Assessed Owner", :class => "align" %>: <%= f.text_field :assessed_owner, :class => "align required", :size => 50 %><br />
+    <%= f.label :tax_description, "Tax Description:", :class => "align" %> <%= f.text_area :tax_description, :class => "align", :rows => 5, :cols => 48, :escape => false %><br />
+  </fieldset>
+  
+  <fieldset class="align">
+    <legend>Delinquent Taxes</legend>
+  </fieldset>
+  
+  <fieldset class="align">
+    <%= f.label :additional_information, "Additional Information", :class => "align" %> <%= f.text_area :additional_information, :class => "align", :rows => 5, :cols => 48, :escape => false %>
+  </fieldset>
+  
+  <fieldset class="align">
+    <%= f.label :date, "Date", :class => "align" %>: &nbsp;<%= f.text_field :date, :class => "align required", :size => 12 %><br />
+    <%= f.label :fee, "Fee", :class => "align" %>: $<%= f.text_field :fee, :class => "align required", :size => 12, :value => "75.78" %><br />
   </fieldset>
   
   <fieldset class="align form_controls">
