@@ -52,7 +52,14 @@ class MaintenanceOrdersController < ApplicationController
   
   def update
     @maintenance_order = MaintenanceOrder.find(params[:id])
-    if @maintenance_order.update_attributes(maintenance_order_params)
+    params_to_update = maintenance_order_params
+    
+    # Set report_date to the current date
+    params_to_update[:report_date] = Date.today.strftime("%m/%d/%Y")
+    
+    puts "HERE HERE #{params_to_update[:report_date]}"
+    
+    if @maintenance_order.update_attributes(params_to_update)
       flash[:success] = "The maintenance order #{@maintenance_order.order_date} has been updated."
       redirect_to @maintenance_order
     else
