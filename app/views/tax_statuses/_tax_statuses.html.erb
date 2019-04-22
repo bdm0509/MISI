@@ -1,0 +1,12 @@
+<% if tax_statuses.size > 0 %>
+<table id="tax_statuses_table" class="display">
+  <thead>
+    <tr><th>Description</th><th>Status Code</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'tax_statuses/tax_status', :collection => tax_statuses %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no tax statuses to display.</p>
+<% end %>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources               :assureds
   resources               :fee_collection_types
   resources               :district_types
+  resources               :tax_statuses
   resources               :collection_districts
   
   resources               :maintenance_funds do

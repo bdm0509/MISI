@@ -178,6 +178,34 @@ function highlight_fee_collection_type(fee_collection_type_id) {
 
 ///////////////////////////////////////////////////////////////
 // 
+// Tax Statuses and support JavaScript
+//
+///////////////////////////////////////////////////////////////
+function tax_status_init_page(num_tax_statuses) {
+  $('#create_new_tax_status').button();
+  
+  if (num_tax_statuses > 0) {
+    $('#tax_status_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "bPaginate":      true,
+      "iDisplayLength": -1,
+      "aLengthMenu":    [[10, 20, -1], [10, 20, "All"]],
+      "aoColumns": [
+        { "bSearchable": true, "sWidth": "200px" },
+        { "bSearchable": true, "sWidth": "160px" },
+        { "bSearchable": false, "bSortable": false, "sWidth": "20px" }
+      ]
+    });
+  }
+}
+
+function highlight_tax_status(tax_status_id) {
+  $("tr#tax_status-" + tax_status_id).effect("highlight", {}, 3000);
+}
+
+///////////////////////////////////////////////////////////////
+// 
 // District Types and support JavaScript
 //
 ///////////////////////////////////////////////////////////////

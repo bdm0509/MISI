@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190421233855) do
+ActiveRecord::Schema.define(version: 20190422002250) do
 
   create_table "assureds", force: :cascade do |t|
     t.string "title"
@@ -126,6 +126,24 @@ ActiveRecord::Schema.define(version: 20190421233855) do
     t.string "fee"
     t.string "cad_value"
     t.integer "assured_id"
+  end
+
+  create_table "tax_entries", force: :cascade do |t|
+    t.integer "collection_district_id"
+    t.integer "district_type_id"
+    t.string "account_number"
+    t.string "year"
+    t.string "base_tax"
+    t.integer "tax_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tax_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "text_blocks", force: :cascade do |t|

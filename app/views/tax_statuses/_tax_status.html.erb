@@ -1,0 +1,5 @@
+<tr id="tax_status-<%= tax_status.id %>">
+  <td class="tax_status_description center"><%= link_to tax_status.description , tax_status_path(tax_status) %></td>
+  <td class="tax_status_type_string center"><%= tax_status.status %></td>
+  <td class="tax_status_controls center"><%= link_to "Delete", tax_status, method: :delete, data: { confirm: "Are you sure you want to delete this status?" }, class: "button delete" %></td>
+</tr>

@@ -1,0 +1,21 @@
+<div id="tax_statuses" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Tax Statuses</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Tax Status", new_tax_status_path, :id => "create_new_tax_status", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'tax_statuses/tax_statuses', :object => @tax_statuses %>
+  </div>
+</div> <!-- div#tax_statuses -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    tax_status_init_page(<%= @tax_statuses.size %>);
+    
+    <% unless @new_tax_status_id.nil? %>
+      highlight_tax_status("<%= @new_tax_status_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

@@ -1,0 +1,6 @@
+<div id="tax_status" class="ui-corner-all listing_div">
+  <h2 class="ui-widget-header ui-corner-top"><%= @tax_status.description %></h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <%= render :partial => "tax_statuses/edit_ftax_status", :locals => { :tax_status_type => "edit" } %>
+  </div>
+</div> <!-- div#tax_status -->

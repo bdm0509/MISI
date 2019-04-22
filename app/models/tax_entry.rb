@@ -1,0 +1,2 @@
+class TaxEntry < ApplicationRecord
+end
