@@ -3,14 +3,16 @@
     <ul id="navigation_menu" class="sf-menu sf-vertical">
       <% if logged_in? %> 
         <li><%= link_to "Maintenance Orders", maintenance_orders_path %></li>
-        <!-- <li><%= link_to "Tax Certificates", tax_certificates_path %></li> -->
+        <li><%= link_to "Tax Certificates", tax_certificates_path %></li>
         <li><%= link_to "HOAs", maintenance_funds_path %></li>
         <li><%= link_to "Assureds", assureds_path %></li>
+        <li><%= link_to "Collection Districts", collection_districts_path %></li>
 
         <% if current_user.admin? %>
           <li><%= link_to "Administration", '#' %>
             <ul>
               <li><%= link_to "Fee Collection Types", fee_collection_types_path %></li>
+              <li><%= link_to "District Types", district_types_path %></li>
               <li><%= link_to "Add User", new_user_path %></li>
               <li><%= link_to "List Users", users_path %></li>
             </ul>

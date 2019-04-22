@@ -22,7 +22,7 @@ private
     tax_certificates.map do |tax_certificate|
       [
         link_to(tax_certificate.gf, tax_certificate, class: "underline"),
-        html_escape(tax_certificate.title_company),
+        html_escape(tax_certificate.assured.title),
         html_escape(tax_certificate.order),
         html_escape(tax_certificate.property_address),
         link_to("Delete", tax_certificate, 

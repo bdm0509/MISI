@@ -14,7 +14,7 @@ end
 99.times do |n|
   TaxCertificate.create!(
     gf: "#{Faker::Number.number(8)} #{generate_chars(2)}",
-    title_company: Faker::Bank.name.titlecase,
+    assured_id: Assured.all[rand(27)].id,
     certificate: "#{rand_int(1997, 2019)}-",
     order: "#{rand_int(100000, 543210)}",
     buyer: Faker::Name.name,

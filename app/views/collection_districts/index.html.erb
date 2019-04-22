@@ -1,0 +1,21 @@
+<div id="collection_districts" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">Collection Districts</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New Collection District", new_collection_district_path, :id => "create_new_collection_district", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'collection_districts/collection_districts', :object => @collection_districts %>
+  </div>
+</div> <!-- div#collection_districts -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    collection_district_init_page(<%= @collection_districts.size %>);
+    
+    <% unless @new_collection_district_id.nil? %>
+      highlight_collection_district("<%= @new_collection_district_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

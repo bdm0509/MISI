@@ -178,6 +178,62 @@ function highlight_fee_collection_type(fee_collection_type_id) {
 
 ///////////////////////////////////////////////////////////////
 // 
+// District Types and support JavaScript
+//
+///////////////////////////////////////////////////////////////
+function district_type_init_page(num_district_types) {
+  $('#create_new_district_type').button();
+  
+  if (num_district_types > 0) {
+    $('#district_types_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "bPaginate":      true,
+      "iDisplayLength": -1,
+      "aLengthMenu":    [[10, 20, -1], [10, 20, "All"]],
+      "aoColumns": [
+        { "bSearchable": true, "sWidth": "200px" },
+        { "bSearchable": true, "sWidth": "160px" },
+        { "bSearchable": false, "bSortable": false, "sWidth": "20px" }
+      ]
+    });
+  }
+}
+
+function highlight_district_type(district_type_id) {
+  $("tr#district_type-" + district_type_id).effect("highlight", {}, 3000);
+}
+
+///////////////////////////////////////////////////////////////
+// 
+// Collection Districts and support JavaScript
+//
+///////////////////////////////////////////////////////////////
+function collection_district_init_page(num_collection_districts) {
+  $('#create_new_collection_district').button();
+  
+  if (num_collection_districts > 0) {
+    $('#collection_districts_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "bPaginate":      true,
+      "iDisplayLength": -1,
+      "aLengthMenu":    [[10, 20, -1], [10, 20, "All"]],
+      "aoColumns": [
+        { "bSearchable": true, "sWidth": "200px" },
+        { "bSearchable": false, "bSortable": false, "sWidth": "20px" }
+      ]
+    });
+  }
+}
+
+function highlight_collection_district(collection_district_id) {
+  alert("Hi with '" + collection_district_id + "'");
+  $("tr#collection_district-" + collection_district_id).effect("highlight", {}, 3000);
+}
+
+///////////////////////////////////////////////////////////////
+// 
 // Maintenance Order functionality and support JavaScript
 //
 ///////////////////////////////////////////////////////////////

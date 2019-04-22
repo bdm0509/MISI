@@ -1,0 +1,12 @@
+<% if district_types.size > 0 %>
+<table id="district_types_table" class="display">
+  <thead>
+    <tr><th>Description</th><th>Type Code</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'district_types/district_type', :collection => district_types %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no District Types to display.</p>
+<% end %>

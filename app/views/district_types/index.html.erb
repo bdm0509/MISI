@@ -1,0 +1,21 @@
+<div id="district_types" class="ui-corner-all">
+  <h2 class="ui-widget-header ui-corner-top">District Types</h2>
+  <div class="ui-widget-content ui-corner-bottom">
+    <div class="content_controls">
+      <%= link_to "Create New District Type", new_district_type_path, :id => "create_new_district_type", :class => "create_new_button" %>
+    </div>
+    <%= render :partial => 'district_types/district_types', :object => @district_types %>
+  </div>
+</div> <!-- div#district_types -->
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    district_type_init_page(<%= @district_types.size %>);
+    
+    <% unless @new_district_type_id.nil? %>
+      highlight_district_type("<%= @new_district_type_id %>");
+    <% end %>
+  });
+</script>
+<% end %>

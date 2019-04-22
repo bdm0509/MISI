@@ -1,0 +1,12 @@
+<% if collection_districts.size > 0 %>
+<table id="collection_districts_table" class="display">
+  <thead>
+    <tr><th>Name</th><th>&nbsp;</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'collection_districts/collection_district', :collection => collection_districts %>
+  </tbody>
+</table>
+<% else %>
+  <p>There are currently no collection districts to display.</p>
+<% end %>

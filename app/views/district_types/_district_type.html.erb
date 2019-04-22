@@ -1,0 +1,5 @@
+<tr id="district_type-<%= district_type.id %>">
+  <td class="district_type_description center"><%= link_to district_type.description , district_type_path(district_type) %></td>
+  <td class="district_type_type_string center"><%= district_type.type_string %></td>
+  <td class="district_type_controls center"><%= link_to "Delete", district_type, method: :delete, data: { confirm: "Are you sure you want to delete this district type?" }, class: "button delete" %></td>
+</tr>

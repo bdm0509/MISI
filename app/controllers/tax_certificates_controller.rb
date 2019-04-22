@@ -78,7 +78,7 @@ class TaxCertificatesController < ApplicationController
     def tax_certificate_params
       params.require(:tax_certificate).permit(:gf,
                                               :certificate, 
-                                              :title_company,
+                                              :assured_id,
                                               :order_no)
     end
 end

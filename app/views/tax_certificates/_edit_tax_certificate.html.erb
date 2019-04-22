@@ -2,12 +2,18 @@
   <%= render 'shared/error_messages', object: f.object %>
 	
   <fieldset class="align">
-    <%= f.label :title_company, "Title Company", :class => "align" %>: <%= f.text_field :title_company, :class => "align required", :size => 50 %><br />
-    <%= f.label :certificate, "Certificate No.", :class => "align" %>: <%= f.text_field :certificate, :class => "align required", :size => 20 %><br />
+    <%= f.label :assured_id, "Title Company", :class => "align select" %>: 
+    <%= collection_select(:tax_certificate, :assured_id, Assured.order('title ASC'), :id, :title, options = { :prompt => true }, :class => "align required" ) %><br />
+    <%= f.label :certificate, "Certificate No.", :class => "align" %>: 
+    <% if @tax_certificate.certificate %>
+      <%= f.text_field :certificate, :class => "align required", :size => 20 %><br />
+    <% else %>
+      <%= f.text_field :certificate, :class => "align required", :size => 20, :value => "#{Date.today.strftime('%Y')}-" %><br />
+    <% end %>
     <%= f.label :gf, "GF", :class => "align" %>: <%= f.text_field :gf, :class => "align required", :size => 20 %><br />
     <%= f.label :order, "Order No.", :class => "align" %>: <%= f.text_field :order, :class => "align required", :size => 20 %><br />
     <%= f.label :buyer, "Buyer", :class => "align" %>: <%= f.text_field :buyer, :class => "align required", :size => 20 %><br />
-    <%= f.label :property_address, "Property Address:", :class => "align" %> <%= f.text_area :property_address, :class => "align", :rows => 5, :cols => 48 %>
+    <%= f.label :property_address, "Property Address:", :class => "align" %> &nbsp;<%= f.text_field :property_address, :class => "align", size: 50 %>
   </fieldset>
   
   <fieldset class="align small_text">
