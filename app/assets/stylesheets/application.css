@@ -11,10 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require jquery-ui
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
  *= require jquery-ui-1.8.16.custom
  *= require jquery.dataTables
  *
- *= require_tree ../../../vendor/app/assets/stylesheets
  *= require_tree .
  *= require_self
  */
