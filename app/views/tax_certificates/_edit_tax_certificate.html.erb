@@ -29,9 +29,17 @@
     <p>Further, MISI does not guarantee (but may include for information purposes) "improvements only" accounts of other "phantom and/or deleted" accounts which are NOT tied by reference utilizing the current Central Appraisal District system within the county requested. MISI has used official government records to produce this report.</p>
   </fieldset>
   
-  <fieldset class="align">
-    <%= f.label :assessed_owner, "Assessed Owner", :class => "align" %>: <%= f.text_field :assessed_owner, :class => "align required", :size => 50 %><br />
-    <%= f.label :tax_description, "Tax Description:", :class => "align" %> <%= f.text_area :tax_description, :class => "align", :rows => 5, :cols => 48, :escape => false %><br />
+  <fieldset class="align center">
+    <%= f.label :assessed_owner, "Assessed Owner", :class => "align-right" %>: <%= f.text_field :assessed_owner, :class => "align required", :size => 50 %><br />
+    
+    <% if tax_certificate_type == "new" %>
+      <br /><em>This certificate must be saved before you can add tax entries.</em><br /><br />
+    <% else %>
+     <%= link_to "Add New Tax Entry", "javascript:add_tax_entry();", :id => "create_new_tax_entry", :class => "create_new_button" %>
+    <% end %>
+    <span id="tax_entries_listing"><%= render :partial => 'tax_entries/tax_entries', :object => @tax_certificate.tax_entries %></span>
+
+    <%= f.label :tax_description, "Tax Description:", :class => "align", :style => "position: relative; left:  100px;" %> <%= f.text_area :tax_description, :class => "align", :rows => 5, :cols => 48, :escape => false %><br />
   </fieldset>
   
   <fieldset class="align">
@@ -43,7 +51,7 @@
   </fieldset>
   
   <fieldset class="align">
-    <%= f.label :date, "Date", :class => "align" %>: &nbsp;<%= f.text_field :date, :class => "align required", :size => 12 %><br />
+    <%= f.label :date, "Date", :class => "align" %>: &nbsp;<%= f.text_field :date, :class => "align required datepicker", :size => 12 %><br />
     <%= f.label :fee, "Fee", :class => "align" %>: $<%= f.text_field :fee, :class => "align required", :size => 12, :value => "75.78" %><br />
   </fieldset>
   
@@ -61,6 +69,9 @@
   // Fire off the change events to populate the form with assured and HOA data
   $(function() {
     $('#print_tax_certificate').button();
+    $('#create_new_tax_entry').button();
+    
+    $('#tax_certificate_date').datepicker();
   });
 </script>
 <% end %>

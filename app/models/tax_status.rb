@@ -2,6 +2,8 @@ class TaxStatus < ApplicationRecord
   validates :status, :description, :presence => true
   before_validation :set_status
   
+  has_many :tax_entries, :dependent => :destroy
+  
   def description=(description)
     unless description.nil?
       write_attribute(:description, description)

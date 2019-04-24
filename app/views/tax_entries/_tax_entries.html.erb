@@ -1,0 +1,12 @@
+<% unless tax_entries.nil? or tax_entries.length == 0 %>
+<table id="tax_entries_table" class="display">
+  <thead>
+    <tr><th>District</th><th>Collection District Name</th><th>Tax Account Number</th><th>Year</th><th>Base Tax</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'tax_entries/tax_entry', :collection => tax_entries %>
+  </tbody>
+</table>
+<% else %>
+  <p>This tax certificate has no associated tax entries.</p>
+<% end %>

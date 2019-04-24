@@ -73,6 +73,12 @@ form label.align {
   width: 140px;
 }
 
+label.align-right {
+  margin: 9px 0 0;
+  text-align: right;
+  width: 140px;
+}
+
 form label.select {
   margin-top: 6px;
 }
@@ -92,6 +98,15 @@ form label.popup-align {
   width: 140px;
 }
 
+form label.popup-select-align {
+  display: block;
+  float: left;
+  margin: 2px 0 0;
+  padding: 4px 3px 0;
+  text-align: right;
+  width: 140px;
+}
+
 form input.align, form textarea.align, form select.align {
   font-family: verdana, arial, helvetica, sans-serif !important;
   font-size: 12px !important;
@@ -107,6 +122,10 @@ form.hr {
   width: 85%;
   color: lightgray;
   background-color: lightgray;
+}
+
+form.hr-narrow {
+  margin: 0;
 }
 
 form label.error {

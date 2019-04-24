@@ -4,3 +4,32 @@
     <%= render :partial => "tax_certificates/edit_tax_certificate", :locals => { :tax_certificate_type => "new" } %>
   </div>
 </div> <!-- div#tax_certificate -->
+
+<div id="tax_entry_information" title="Tax Entry">
+  <form id="tax_entry_listing_form" class="align">
+    <h5 class="center">Tax Entry for &nbsp;&nbsp;<%= collection_select(:tax_entry, :district_type_id, DistrictType.order('description ASC'), :id, :description, options = { :prompt => true }, :class => "align required right" ) %></h5>
+    <hr style="margin: 5px 0 10px 0" />
+    <label for="tax_entry_collection_district" class="popup-select-align">Collection District</label>: 
+    <%= collection_select(:tax_entry, :collection_district_id, CollectionDistrict.order('name ASC'), :id, :name, options = { :prompt => true }, :class => "align required right" ) %><br />
+    <label for="tax_entry_account_number" class="popup-align">Account Number</label>: 
+    <input type="text" id="tax_entry_account_number" name="tax_entry_account_number" class="align" size="20" /><br />
+    <label for="tax_entry_year" class="popup-align">Year</label>:
+    <input type="text" id="tax_entry_year" name="tax_entry_year" class="align" size="8" /><br />
+    <label for="tax_entry_base_tax" class="popup-align">Base Tax</label>:
+    $<input type="text" id="tax_entry_base_tax" name="tax_entry_base_tax" class="align" size="8" /><br />
+    <label for="tax_entry_status" class="popup-select-align">Status:</label>
+    <%= collection_select(:tax_entry, :tax_status_id, TaxStatus.order('status ASC'), :id, :status, options = { :prompt => true }, :class => "align required right" ) %><br />
+    
+    
+    <input type="hidden" id="tax_certificate_id" name="tax_certificate_id" value="<%= @tax_certificate.id %>" />
+    <input type="hidden" id="tax_entry_id" name="tax_entry_id" />
+  </form>
+</div>
+
+<% content_for :head do %>
+<script type="text/javascript">
+  $(function() {
+    tax_entries_init_page(<%= @tax_certificate.tax_entries.length %>);
+  });
+</script>
+<% end %>

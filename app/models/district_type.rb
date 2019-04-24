@@ -2,6 +2,8 @@ class DistrictType < ApplicationRecord
   validates :type_string, :description, :presence => true
   before_validation :set_type_string
   
+  has_many :tax_entries
+  
   def description=(description)
     unless description.nil?
       write_attribute(:description, description)

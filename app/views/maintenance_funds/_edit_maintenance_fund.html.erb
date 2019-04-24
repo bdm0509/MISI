@@ -22,7 +22,12 @@
     <%= f.text_area :amenities, :class => "align", :rows => 5, :cols => 50 %>
   </fieldset>
   <fieldset class="align center">
-    <%= link_to "Add New Fee", "javascript:add_maintenance_fund_fee();", :id => "create_new_maintenance_fund_fee", :class => "create_new_button" %>
+    
+    <% if maintenance_fund_type == "new" %>
+      <br /><em>This HOA must be saved before you can add fees.</em><br /><br />
+    <% else %>
+      <%= link_to "Add New Fee", "javascript:add_maintenance_fund_fee();", :id => "create_new_maintenance_fund_fee", :class => "create_new_button" %>
+    <% end %>
     <span id="maintenance_fund_fees_listing"><%= render :partial => 'maintenance_fund_fees/maintenance_fund_fees', :object => @maintenance_fund.maintenance_fund_fees %></span>
   </fieldset>
   <fieldset class="align form_controls">

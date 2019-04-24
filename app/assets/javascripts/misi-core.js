@@ -2,6 +2,7 @@ var ready = function() {
 	init_navigation_menu();
 	init_jquery_ui_controls();
   init_sitewide_bindings();
+  init_dialogs();
   
   $.ajaxSetup({
     headers: {
@@ -19,6 +20,11 @@ $(document).on('page:load', ready);
 //
 function init_navigation_menu() {
   $("#navigation_menu").menu();
+}
+
+function init_dialogs() {
+  misi_alert("#error-dialog", 250, 400);
+  misi_alert("#information-dialog", 250, 400);
 }
 
 ///////
@@ -82,7 +88,6 @@ function misi_alert(id, dialog_height, dialog_width) {
   dialog_height = typeof(dialog_height) != "undefined" ? dialog_height : 140;
   dialog_width  = typeof(dialog_width)  != "undefined" ? dialog_width  : 250;
   
-  
   $(id).dialog({
     autoOpen: false,
     height:   dialog_height,
@@ -96,7 +101,7 @@ function misi_alert(id, dialog_height, dialog_width) {
   });
 }
 
-function misi_error(error_message) {
+function misi_error(error_message) {  
   $("#error_message").html(error_message);
   $("#error-dialog").dialog("open");
 }
@@ -309,12 +314,6 @@ function print_maintenance_order(print_path) {
   theForm.target = '_print';
   theForm.attr('action', print_path);
   theForm.submit();
-  
-  //$.ajax({
-  //  url: print_path,
-  //  data: valuesToSubmit,
-  //  type: "POST"
-  // });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -362,12 +361,6 @@ function print_maintenance_order(print_path) {
   theForm.target = '_print';
   theForm.attr('action', print_path);
   theForm.submit();
-  
-  //$.ajax({
-  //  url: print_path,
-  //  data: valuesToSubmit,
-  //  type: "POST"
-  // });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -416,27 +409,6 @@ function maintenance_fund_init_page(num_maintenance_funds) {
 		modal: true,
 		autoOpen: false
 	});
-	
-/*
-  $('#print_maintenance_funds').click(function(e) {
-    e.preventDefault();
-    targetURL = $(this).attr("href");
-    
-    $("#print_confirm").dialog({
-      buttons: {
-  			"Print HOA Listings": function() {
-  			  window.location.href = targetURL + "?show_additional_contact_information=" + $("#show_additional_contact_information").is(":checked");
-  			  $(this).dialog("close");
-  			},
-  			Cancel: function() {
-  				$(this).dialog("close");
-  			}
-  		}
-    });
-    
-    $("#print_confirm").dialog("open");
-  });
-	*/
 }
 
 function maintenance_fund_contact_info(name, contact, phone) {
@@ -560,4 +532,103 @@ function maintenance_fund_fee_info(maintenance_fund_fee_id) {
   $("#maintenance_fund_fee_fee_collection_type_id").val($("tr#maintenance_fund_fee-" + maintenance_fund_fee_id + " td input.maintenance_fund_fee_collected_id").val());
   
   $("#maintenance_fund_fee_information").dialog("open");
+}
+
+///////////////////////////////////////////////////////////////
+// 
+// Tax Certificate functionality and support JavaScript
+//
+///////////////////////////////////////////////////////////////
+function add_tax_entry() {
+  $("#tax_entry_account_number").val("");
+  $("#tax_entry_year").val("");
+  $("#tax_entry_base_tax").val("");
+  
+  // $("#tax_entry_fee_collection_type_id").val("");
+  $("#tax_entry_id").val("");
+  
+  $("#tax_entry_information").dialog("open");
+}
+
+function highlight_tax_entry(tax_entry_id) {
+  $("tr#tax_entry-" + tax_entry_id).effect("highlight", {}, 3000);
+}
+
+function tax_entries_init_page(num_tax_entries) {
+  $("#tax_entry_information").dialog({
+    autoOpen: false,
+    height:   340,
+    width:    400,
+    modal:    true,
+    buttons: {
+      "Close": function() {
+        $(this).dialog("close");
+      },
+      "Add this tax entry": function() {
+        var valuesToSubmit = $("#tax_entry_listing_form").serialize();
+        
+        // Validate
+        errorMessage = "";
+        
+        if (!$("#tax_entry_district_type_id").val()) {
+          errorMessage += "Please select the type of tax entry.\n";
+        }
+        if (!$("#tax_entry_collection_district_id").val()) {
+          errorMessage += "Please select the collection district.\n";
+        } 
+        if (!$("#tax_entry_account_number").val()) {
+          errorMessage += "An account number is required.\n";
+        } 
+        if (!$("#tax_entry_year").val()) {
+          errorMessage += "An tax year is required.\n";
+        } 
+        if (!$("#tax_entry_base_tax").val()) {
+          errorMessage += "A base tax is required.\n";
+        }
+        if (!$("#tax_entry_tax_status_id").val()) {
+          errorMessage += "Please select the tax status.\n";
+        } 
+        
+        if (errorMessage.length > 0) {
+          alert(errorMessage);          
+        } else {
+				  var id = $('#tax_entry_id').val();
+				  var isNew = id == null || id == '';
+				
+          $.ajax({
+            method: isNew ? 'POST' : 'PUT',
+            url: "/tax_entries/" + id,
+            data: valuesToSubmit,
+            dataType: 'script'
+          });
+          
+          $(this).dialog("close");
+        }
+      }
+    }
+  });
+  
+  $('#create_new_tax_entry').button();
+
+  tax_entries_table_init(num_tax_entries);
+}
+
+function tax_entries_table_init(num_tax_entries) {
+  if (num_tax_entries > 0) { 
+    $('#tax_entries_table').dataTable({
+      "bJQueryUI":      true,
+      "bAutoWidth":     false,
+      "iDisplayLength": 25,
+      "aLengthMenu":    [[25, 50, 100, -1], [25, 50, 100, "All"]],
+      "aoColumns": [
+        { "sWidth": "80px" },
+        { "sWidth": "250px" },
+        { "sWidth": "200px" },
+        { "sWidth": "75px" },
+        { "sWidth": "100px" },
+        { "sWidth": "75px" }
+      ]
+			
+    });
+  }
 }
