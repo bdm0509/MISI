@@ -14,7 +14,7 @@
  *= require jquery-ui-1.8.16.custom
  *= require jquery.dataTables
  *
- *= require_tree ../../../vendor/assets/stylesheets
+ *= require_tree ../../../vendor/app/assets/stylesheets
  *= require_tree .
  *= require_self
  */
