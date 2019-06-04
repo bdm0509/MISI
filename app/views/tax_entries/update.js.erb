@@ -1,9 +1,14 @@
 <% unless @errors.nil? %>
   misi_error("There was a problem making the requested tax entry changes: <%= @errors %>");
 <% else %>
-alert("Or here");
+  alert("Good so far");
+
   entry_table = $("#tax_entries_table").dataTable();
-  entry_table.fnDestroy();
+
+  // I'm not sure why this was here. It appears to kill the function
+  //   if it's the first time an entry is being added. By commenting this out,
+  //   it appears things work for both creating and adding entries.
+  // entry_table.fnDestroy();
   
   $("#tax_entries_listing")
     .empty()

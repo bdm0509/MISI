@@ -2,7 +2,11 @@
   misi_error("There was a problem making the requested fee changes: <%= @errors %>");
 <% else %>
   fee_table = $("#maintenance_fund_fees_table").dataTable();
-  fee_table.fnDestroy();
+  
+  // I'm not sure why this was here. It appears to kill the function
+  //   if it's the first time a fee is being added. By commenting this out,
+  //   it appears things work for both creating and adding fees.
+  // fee_table.fnDestroy();
   
   $("#maintenance_fund_fees_listing")
     .empty()

@@ -17,9 +17,6 @@ class TaxEntriesController < ApplicationController
       @errors = @tax_entry.errors
     end
     
-    puts @errors.inspect
-    
-    
     render "update"   
   end
   
@@ -57,7 +54,6 @@ private
     tax_entry.base_tax = base_tax
     
     begin
-      puts "DISTRICT ID: " + district_type_id
       tax_entry.district_type =  DistrictType.find(district_type_id)
     rescue ActiveRecord::RecordNotFound => exc
       puts "ERROR 1"

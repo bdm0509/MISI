@@ -607,7 +607,7 @@ function tax_entries_init_page(num_tax_entries) {
       }
     }
   });
-  
+    
   $('#create_new_tax_entry').button();
 
   tax_entries_table_init(num_tax_entries);
