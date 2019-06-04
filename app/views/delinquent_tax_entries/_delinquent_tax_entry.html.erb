@@ -1,0 +1,8 @@
+<tr id="delinquent_tax_entry-<%= delinquent_tax_entry.id %>">
+  <td class="tax_entry_year center">
+    <a href="javascript:delinquent_tax_entry_info(<%= delinquent_tax_entry.id %>);"><%= delinquent_tax_entry.district_type.description %></a> 
+  </td>
+  <td class="tax_entry_account_number center"><%= delinquent_tax_entry.account_number %></td>
+  <td class="tax_entry_year center"><%= delinquent_tax_entry.year_due %></td>
+  <td class="tax_entry_base_tax center">$<%= delinquent_tax_entry.amount %></td>
+</tr>

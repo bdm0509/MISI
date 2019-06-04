@@ -1,0 +1,12 @@
+<% unless delinquent_tax_entries.nil? or delinquent_tax_entries.length == 0 %>
+<table id="delinquent_tax_entries_table" class="display">
+  <thead>
+    <tr><th>District</th><th>Tax Account Number or Description</th><th>Year for which Taxes are Due</th><th>Amount of Tax</th></tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'delinquent_tax_entries/delinquent_tax_entry', :collection => delinquent_tax_entries %>
+  </tbody>
+</table>
+<% else %>
+  <p>This tax certificate has no associated delinquent tax entries.</p>
+<% end %>

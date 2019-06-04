@@ -3,7 +3,7 @@ class DelinquentTaxEntriesController < ApplicationController
   def create
     @delinquent_tax_entry = update_tax_entry(
                                   nil, 
-                                  params[:delinquent_tax_entry][:collection_district_id],
+                                  params[:delinquent_tax_entry][:district_type_id],
                                   params[:delinquent_tax_entry_account_number],
                                   params[:delinquent_tax_entry_year_due],
                                   params[:delinquent_tax_entry_amount])
@@ -23,7 +23,7 @@ class DelinquentTaxEntriesController < ApplicationController
   def update
     @delinquent_tax_entry = update_delinquent_tax_entry(
                                   params[:id], 
-                                  params[:delinquent_tax_entry][:collection_district_id],
+                                  params[:delinquent_tax_entry][:district_type_id],
                                   params[:delinquent_tax_entry_account_number],
                                   params[:delinquent_tax_entry_year_due],
                                   params[:delinquent_tax_entry_amount])
@@ -40,7 +40,7 @@ class DelinquentTaxEntriesController < ApplicationController
   end
   
 private
-  def update_delinquent_tax_entry(id, collection_district_id, 
+  def update_delinquent_tax_entry(id, district_type_id, 
                                   account_number, year_due, amount)
     if id.nil?
       delinquent_tax_entry = DelinquentTaxEntry.new
@@ -53,9 +53,9 @@ private
     delinquent_tax_entry.amount = amount
     
     begin
-      delinquent_tax_entry.collection_district =  CollectionDistrict.find(collection_district_id)
+      delinquent_tax_entry.district_type =  DistrictType.find(district_type_id)
     rescue ActiveRecord::RecordNotFound => exc
-      puts "ERROR 2"
+      puts "ERROR 1"
       # Don't update the tax entry
     end
     

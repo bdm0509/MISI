@@ -1,0 +1,18 @@
+<% unless @errors.nil? %>
+  misi_error("There was a problem making the requested delinquent tax entry changes: <%= @errors %>");
+<% else %>
+  delinquent_entry_table = $("#delinquent_tax_entries_table").dataTable();
+
+  // I'm not sure why this was here. It appears to kill the function
+  //   if it's the first time an entry is being added. By commenting this out,
+  //   it appears things work for both creating and adding entries.
+  // entry_table.fnDestroy();
+  
+  $("#delinquent_tax_entries_listing")
+    .empty()
+    .append("<%= escape_javascript(render(:partial => 'delinquent_tax_entries/delinquent_tax_entries', :object => @tax_certificate.delinquent_tax_entries)) %>");
+    
+  delinquent_tax_entries_table_init(<%= @tax_certificate.delinquent_tax_entries.length %>);
+
+  highlight_delinquent_tax_entry(<%= @delinquent_tax_entry.id %>);
+<% end %>
