@@ -79,6 +79,13 @@ class TaxCertificatesController < ApplicationController
       params.require(:tax_certificate).permit(:gf,
                                               :certificate, 
                                               :assured_id,
-                                              :order_no)
+                                              :order_no,
+                                              :buyer,
+                                              :property_address,
+                                              :assessed_owner,
+                                              :additional_information,
+                                              :date,
+                                              :fee,
+                                              :cad_value)
     end
 end

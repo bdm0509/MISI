@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190422232146) do
+ActiveRecord::Schema.define(version: 20190604132553) do
 
   create_table "assureds", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20190422232146) do
 
   create_table "collection_districts", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "delinquent_tax_entries", force: :cascade do |t|
+    t.integer "collection_district_id"
+    t.string "account_number"
+    t.string "year_due"
+    t.string "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

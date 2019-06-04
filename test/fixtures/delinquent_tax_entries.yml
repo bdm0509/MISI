@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  collection_district_id: 1
+  account_number: MyString
+  year_due: MyString
+  amount: MyString
+
+two:
+  collection_district_id: 1
+  account_number: MyString
+  year_due: MyString
+  amount: MyString

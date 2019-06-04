@@ -39,15 +39,17 @@
     <% end %>
     <span id="tax_entries_listing"><%= render :partial => 'tax_entries/tax_entries', :object => @tax_certificate.tax_entries %></span>
 
-    <%= f.label :tax_description, "Tax Description:", :class => "align", :style => "position: relative; left:  100px;" %> <%= f.text_area :tax_description, :class => "align", :rows => 5, :cols => 48, :escape => false %><br />
+    <%= f.label :tax_description, "Legal Description:", :class => "align", :style => "position: relative; left:  100px;" %> <%= f.text_area :tax_description, :class => "align", :rows => 5, :cols => 48, :escape => false %><br />
   </fieldset>
   
-  <fieldset class="align">
+  <fieldset class="align center">
     <legend>Delinquent Taxes</legend>
-  </fieldset>
-  
-  <fieldset class="align">
-    <%= f.label :additional_information, "Additional Information", :class => "align" %> <%= f.text_area :additional_information, :class => "align", :rows => 5, :cols => 48, :escape => false %>
+    <% if tax_certificate_type == "new" %>
+      <br /><em>This certificate must be saved before you can add delinquent tax entries.</em><br /><br />
+    <% else %>
+     <%= link_to "Add New Delinquent Tax Entry", "javascript:add_delinquent_tax_entry();", :id => "create_new_delinquent_tax_entry", :class => "create_new_button" %>
+    <% end %>
+        <%= f.label :additional_information, "Additional Information", :class => "align" %> <%= f.text_area :additional_information, :class => "align", :rows => 5, :cols => 48, :escape => false %>
   </fieldset>
   
   <fieldset class="align">
@@ -70,6 +72,7 @@
   $(function() {
     $('#print_tax_certificate').button();
     $('#create_new_tax_entry').button();
+    $('#create_new_delinquent_tax_entry').button();
     
     $('#tax_certificate_date').datepicker();
   });
